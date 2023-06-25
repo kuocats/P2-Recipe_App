@@ -53,7 +53,7 @@ The following screenshot shows the application's GET routes to return all catego
 
 ![Get categories](./assets/get-categories.png)
 
-The following screenshot shows the application's GET routes to return category by ID being tested in Insomnia:
+The following screenshot shows the application's GET routes to return ingredients:
 
 ![Get ingredients](./assets/get-ingredients.png)
 
