@@ -1,123 +1,64 @@
-# P2-Recipe_App
-Interactive Front-End Project
-Projects are extremely important on your journey to becoming a full-stack web developer. As you get further along in the boot camp, you’ll find opportunities to apply for web developer roles. Among the first requirements you’ll need to even get an interview are high-quality deployed examples of your work featured in your portfolio.
+# recipe-master
 
-This project will be a centerpiece for your portfolio and your first opportunity to show employers your collaborative skills and coding abilities. Employers want to see what you can do, but they also want to see how you work with other developers. The more examples of deployed collaborative work you have in your portfolio, the more likely you are to get an interview and a job. One of the requirements for this project is that you add it to your portfolio.
+## Description
 
-Project Requirements
-You and your group will use everything you’ve learned over the past six weeks to create a real-world front-end application that you’ll be able to showcase to potential employers. The user story and acceptance criteria will depend on the project that you create, but your project must fulfil the following requirements:
+Deployed application link on GitHub
 
-Use a CSS framework other than Bootstrap.
+https://github.com/
 
-Be deployed to GitHub Pages.
+## Table of Contents
 
-Be interactive (i.e: accept and respond to user input).
+- [Installation](#installation)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Mock-Up](#mock-up)
+- [Credits](#credits)
+- [License](#license)
 
-Use at least two server-side APIs.
+## Installation
 
-Does not use alerts, confirms, or prompts (use modals).
+No special requirements
 
-Use client-side storage to store persistent data.
+## Requirements
 
-Be responsive.
+No special requirements
 
-Have a polished UI.
+## Usage
 
-Have a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id-naming conventions, indentation, quality comments, etc.).
+Open your command-line interface.
 
-Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
+Run `npm i` to install the required dependencies.
 
-Finally, You must add your project to the portfolio that you created in Module 2.
+Update the configuration in the `.env` file with your MySQL settings.
 
-Presentation Requirements
-Use this Project Presentation TemplateLinks to an external site. to address the following:
+Set up a MySQL database by running `mysql -u root -p` and entering your MySQL password.
 
-Elevator pitch: A one-minute description of your application.
+In the MySQL command line interface, run `source db/schema.sql` to import the schema and create the necessary tables.
 
-Concept: What is your user story? What was your motivation for development?
+Run `node seeds/index.js` to populate the database with sample data.
 
-Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
+Start the server by running `npm start`.
 
-Demo: Show your stuff!
+Open your browser and go to http://localhost:3001/ to access the application.
 
-Directions for future development.
+## Mock-Up
 
-Links to the deployed application and the GitHub repository.
+Screenshots located in `./assets/` folder.
 
-Grading Requirements
-This project is graded based on the following criteria:
+The following screenshot shows the application's GET routes to return all recipes:
 
-NOTE
-If a project submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
+![Get recipes](./assets/get-recipes.png)
 
-A repository that has no code
+The following screenshot shows the application's GET routes to return all categories:
 
-A repository that includes a unique name but nothing else
+![Get categories](./assets/get-categories.png)
 
-A repository that includes only a README file but nothing else
+The following screenshot shows the application's GET routes to return category by ID being tested in Insomnia:
 
-A repository that only includes starter code
+![Get ingredients](./assets/get-ingredients.png)
 
-Technical Acceptance Criteria: 25%
-Satisfies the following code requirements:
+## Credits
 
-Application uses at least two server-side APIs.
+## License
 
-Application uses client-side storage to store persistent data.
-
-Application doesn't use JS alerts, prompts, or confirms (uses modals instead).
-
-Application uses a CSS framework other than Bootstrap.
-
-Application is interactive (accepts and responds to user input).
-
-Concept 10%
-Application should be a unique and novel idea.
-
-Your group should clearly and concisely articulate your project idea.
-
-Deployment: 20%
-Application deployed at live URL and loads with no errors.
-
-Application GitHub URL submitted.
-
-Portfolio at live URL submitted, featuring project.
-
-Repository Quality: 10%
-Repository has a unique name.
-
-Repository follows best practices for file structure and naming conventions.
-
-Repository follows best practices for class/id-naming conventions, indentation, quality comments, etc.
-
-Repository contains multiple descriptive commit messages.
-
-Repository contains a quality README file with description, screenshot, and link to deployed application.
-
-Application Quality: 15%
-Application user experience is intuitive and easy to navigate.
-
-Application user interface style is clean and polished.
-
-Application is responsive.
-
-Presentation 10%
-Your group should present using Powerpoint or a similar presentation software.
-
-Every group member should speak during the presentation.
-
-Your presentation should follow the Project Presentation Template.
-
-Collaboration 10%
-There are no major disparities in the number of GitHub contributions between group members.
-How to Submit Your Interactive Front-End Project
-Each member of your group is required to submit the following for review:
-
-The URL of the deployed application.
-
-The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-The URL of your portfolio, with your project added to it.
-
-NOTE
-You are NOT allowed to skip this assignment. Project assignments are required.
+Please refer to the LICENSE in the repo.
