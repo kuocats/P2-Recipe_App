@@ -41,6 +41,29 @@ Start the server by running `npm start`.
 
 Open your browser and go to http://localhost:3001/ to access the application.
 
+Test it in insomnia:
+
+Recipes:
+GET /api/recipes Get all recipes.
+GET /api/recipes/:name Get a specific recipe by its name.
+POST /api/recipes Creates a new recipe.
+PUT /api/recipes/:name Updates a recipe by its name.
+DELETE /api/recipes/:id Deletes a recipe by its ID.
+
+Categories:
+GET /api/categories Gets all categories.
+GET /api/categories/:name Gets a specific category by its name.
+POST /api/categories Creates a new category.
+PUT /api/categories/:name Updates a category by its name.
+DELETE /api/categories/:id Deletes a category by its ID.
+
+Ingredients:
+GET /api/ingredients Gets all ingredients.
+GET /api/ingredients/:name Gets a specific ingredient by its name.
+POST /api/ingredients: Creates a new ingredient.
+PUT /api/ingredients/:name Updates an ingredient by its name.
+DELETE /api/ingredients/:id Deletes an ingredient by its ID.
+
 ## Mock-Up
 
 Screenshots located in `./assets/` folder.
