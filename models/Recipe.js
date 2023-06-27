@@ -16,9 +16,17 @@ Recipe.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    picture: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     recipe_name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    recipe_text: {
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
     cook_time: {
       type: DataTypes.INTEGER,

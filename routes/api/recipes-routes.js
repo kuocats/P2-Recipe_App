@@ -46,10 +46,14 @@ router.get("/:name", (req, res) => {
 router.post("/", (req, res) => {
   /* req.body should look like this...
     {
+      picture: "path/to/image.jpg"
       recipe_name: "Butter Chicken",
+      recipe_text: "Recipe instructions...",
       cook_time: 3,
       category_id: 1,
       ingredientNames: ["Chicken", "Butter", "Salt", "Pepper"]
+
+      
     }
   */
   Recipe.create(req.body)
