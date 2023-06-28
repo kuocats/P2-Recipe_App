@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload test</title>
+  </head>
+  <body>
+    <form action="/api/Recipes" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" />
+        <!-- Include other recipe fields in the form -->
+        <button type="submit">Create Recipe</button>
+      </form>
+    </form>
+  </body>
+</html>

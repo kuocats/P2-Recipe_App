@@ -6,9 +6,14 @@ const {
   RecipeIngredient,
 } = require("../../models");
 
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" }); // Set the destination folder for uploaded files
+const slugify = require("slugify");
+const { Op } = require("sequelize");
+
 // The `/api/Recipes` endpoint
 
-// get all Recipes
+// Get all Recipes
 router.get("/", (req, res) => {
   // find all Recipes
   Recipe.findAll({
@@ -25,10 +30,24 @@ router.get("/", (req, res) => {
 // get one Recipe
 router.get("/:name", (req, res) => {
   const recipeName = req.params.name;
+  const searchWord = req.query.word;
 
-  // find a single Recipe by its `recipe_name`
+  // Split the search word into words only if it exists
+  const searchWords = searchWord ? searchWord.split(" ") : [];
+
+  // Build an array using Sequelize for each word
+  const conditions = searchWords.map((word) => ({
+    recipe_name: {
+      [Op.like]: `%${word}%`,
+    },
+  }));
+
+  // Find a single Recipe by its `recipe_name` and match any of the search words in its name
   Recipe.findOne({
-    where: { recipe_name: recipeName },
+    where: {
+      recipe_name: recipeName,
+      [Op.or]: conditions,
+    },
     include: [
       { model: Category, as: "category" },
       { model: Ingredient, as: "ingredients" },
@@ -42,8 +61,9 @@ router.get("/:name", (req, res) => {
       res.status(400).json(err);
     });
 });
-// create new Recipe
-router.post("/", (req, res) => {
+
+// Create new Recipe
+router.post("/", upload.single("photo"), (req, res) => {
   /* req.body should look like this...
     {
       picture: "path/to/image.jpg"
@@ -52,108 +72,96 @@ router.post("/", (req, res) => {
       cook_time: 3,
       category_id: 1,
       ingredientNames: ["Chicken", "Butter", "Salt", "Pepper"]
-
-      
     }
   */
-  Recipe.create(req.body)
-    .then((recipe) => {
-      // if there are Recipe Ingredients, we need to create pairings to bulk create in the RecipeIngredient model
-      if (
-        Array.isArray(req.body.ingredientNames) &&
-        req.body.ingredientNames.length
-      ) {
-        const RecipeIngredientArr = req.body.ingredientNames.map(
-          (ingredientName) => {
-            return Ingredient.findOrCreate({ where: { name: ingredientName } })
-              .then(([ingredient]) => ingredient)
-              .then((ingredient) => {
-                return {
-                  recipe_id: req.params.name,
-                  ingredient_id: req.ingredient.id,
-                };
-              });
-          }
-        );
-        return Promise.all(RecipeIngredientArr).then((recipeIngredients) => {
-          return RecipeIngredient.bulkCreate(recipeIngredients);
-        });
-      }
-      // if no Recipe ingredients, just respond
-      return res.status(200).json(recipe);
-    })
-    .then(() => {
-      res.status(200).json({ message: "Recipe created" });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json(err);
-    });
-});
-
-// update Recipe
-router.put("/:name", (req, res) => {
-  // update Recipe data
-  Recipe.update(req.body, {
-    where: {
-      recipe_name: req.params.name,
-    },
+  const {
+    picture,
+    recipe_name,
+    recipe_text,
+    cook_time,
+    category_id,
+    ingredientNames,
+  } = req.body;
+  const slug = slugify(req.body.recipe_name, { lower: true });
+  Recipe.create({
+    picture: req.file ? req.file.filename : picture,
+    recipe_name,
+    recipe_text,
+    cook_time,
+    category_id,
   })
     .then((recipe) => {
-      // find all associated ingredients from RecipeIngredient
-      return RecipeIngredient.findAll({
-        include: [
-          {
-            model: Recipe,
-            where: { recipe_name: req.params.name },
-          },
-        ],
-      });
-    })
-    .then((RecipeIngredients) => {
-      // get list of current ingredient_ids
-      const RecipeIngredientIds = RecipeIngredients.map(({ ingredient_id }) =>
-        ingredient_id.toString()
-      );
-      // create filtered list of new ingredient_ids
-      const newRecipeIngredients = req.body.ingredientNames
-        .filter(
-          (ingredientName) => !RecipeIngredientIds.includes(ingredientName)
-        )
-        .map((ingredientName) => {
+      if (Array.isArray(ingredientNames) && ingredientNames.length) {
+        const RecipeIngredientArr = ingredientNames.map((ingredientName) => {
           return Ingredient.findOrCreate({ where: { name: ingredientName } })
             .then(([ingredient]) => ingredient)
             .then((ingredient) => {
               return {
-                recipe_id: req.recipe.id,
-                ingredient_id: req.ingredient.id,
+                recipe_id: recipe.id,
+                ingredient_id: ingredient.id,
               };
             });
         });
-      // figure out which ones to remove
-      const RecipeIngredientsToRemove = RecipeIngredients.filter(
-        ({ ingredient_id }) => !req.body.ingredientNames.includes(ingredient_id)
-      ).map(({ id }) => id);
-
-      // run both actions
-      return Promise.all([
-        RecipeIngredient.destroy({ where: { id: RecipeIngredientsToRemove } }),
-        Promise.all(newRecipeIngredients).then((recipeIngredients) =>
-          RecipeIngredient.bulkCreate(recipeIngredients)
-        ),
-      ]);
+        return Promise.all(RecipeIngredientArr).then((recipeIngredients) => {
+          return RecipeIngredient.bulkCreate(recipeIngredients);
+        });
+      }
+      return recipe;
     })
-    .then((updatedRecipeIngredients) => res.json({ message: "Recipe updated" }))
+    .then((recipe) => {
+      res.status(200).json({ message: "Recipe created", slug: slug });
+    })
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
     });
 });
 
+// Update Recipe
+router.put("/:name", upload.single("photo"), (req, res) => {
+  // Update Recipe data
+  const updatedRecipe = {
+    recipe_name: req.body.recipe_name,
+    recipe_text: req.body.recipe_text,
+    cook_time: req.body.cook_time,
+    category_id: req.body.category_id,
+    picture: req.file ? req.file.filename : req.body.picture,
+  };
+
+  Recipe.update(updatedRecipe, {
+    where: {
+      recipe_name: req.params.name,
+    },
+  })
+    .then(() => {
+      // Find the updated Recipe
+      return Recipe.findOne({
+        where: {
+          recipe_name: req.body.recipe_name,
+        },
+      });
+    })
+    .then((updatedRecipe) => {
+      // Generate slug for the updated recipe name
+      const slug = slugify(updatedRecipe.recipe_name, { lower: true });
+
+      // Update the slug in the recipe record
+      return updatedRecipe.update({ slug: slug });
+    })
+    .then(() => {
+      res.json({ message: "Recipe updated" });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
+});
+
+// Delete Recipe
 router.delete("/:id", (req, res) => {
   // delete one Recipe by its `id` value
   Recipe.destroy({ where: { id: req.params.id } })
-    .then((recipeData) => {
+    .then(() => {
       res.json({ message: "Recipe deleted" });
     })
     .catch((err) => res.json(err));
