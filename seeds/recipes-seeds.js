@@ -93,19 +93,19 @@ const recipeData = [
     category_id: 3,
     recipe_text: `Cook the bacon in a separate skillet over medium heat until crispy. Once cooked, transfer the bacon to a paper towel-lined plate to drain excess grease.
 
-    Place the burger patties on the preheated grill or skillet. Cook for about 4-5 minutes on each side for medium doneness or adjust the cooking time to your desired level of doneness.
-    
-    During the last couple of minutes of cooking, place a slice of cheddar cheese on each patty to melt.
-    
-    While the burgers are cooking, lightly toast the hamburger buns on the grill or in a toaster.
-    
-    Assemble the burgers by placing a cooked patty on the bottom half of each bun.
-    
-    Top each patty with a slice of bacon, lettuce leaves, tomato slices, red onion slices, and pickles if desired.
-    
-    Spread your preferred condiments on the top half of the buns, such as ketchup, mustard, or mayo.
-    
-    Place the top bun on the assembled burger.`,
+Place the burger patties on the preheated grill or skillet. Cook for about 4-5 minutes on each side for medium doneness or adjust the cooking time to your desired level of doneness.
+
+During the last couple of minutes of cooking, place a slice of cheddar cheese on each patty to melt.
+
+While the burgers are cooking, lightly toast the hamburger buns on the grill or in a toaster.
+
+Assemble the burgers by placing a cooked patty on the bottom half of each bun.
+
+Top each patty with a slice of bacon, lettuce leaves, tomato slices, red onion slices, and pickles if desired.
+
+Spread your preferred condiments on the top half of the buns, such as ketchup, mustard, or mayo.
+
+Place the top bun on the assembled burger.`,
     picture: "path/to/image.jpg",
   },
 ];

@@ -59,6 +59,14 @@ The following screenshot shows the application's GET routes to return ingredient
 
 ## Credits
 
+Documetation for the following npm packages were used to create this application:
+https://www.npmjs.com/package/multer
+https://www.npmjs.com/package/slugify
+
+Here documentation for Sequelize fearch by word
+`[Op.like]: '%hat'`
+https://sequelize.org/docs/v6/core-concepts/model-querying-basics/
+
 ## License
 
 Please refer to the LICENSE in the repo.
