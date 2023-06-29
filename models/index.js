@@ -1,4 +1,5 @@
 // import models
+const User = require('./User');
 const Recipe = require("./Recipe");
 const Category = require("./Category");
 const Ingredient = require("./Ingredient");
@@ -33,6 +34,7 @@ Ingredient.belongsToMany(Recipe, {
 });
 
 module.exports = {
+  User,
   Recipe,
   Category,
   Ingredient,
