@@ -1,5 +1,4 @@
-// import models
-const User = require('./User');
+const User = require("./User");
 const Recipe = require("./Recipe");
 const Category = require("./Category");
 const Ingredient = require("./Ingredient");
@@ -31,6 +30,16 @@ Ingredient.belongsToMany(Recipe, {
   through: RecipeIngredient,
   foreignKey: "ingredient_id",
   onDelete: "CASCADE",
+});
+
+// User has many Recipes
+User.hasMany(Recipe, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
+
+Recipe.belongsTo(User, {
+  foreignKey: "user_id",
 });
 
 module.exports = {
