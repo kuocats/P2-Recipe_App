@@ -36,6 +36,18 @@ Recipe.init(
       type: DataTypes.INTEGER,
       references: { category_id: "id", category_name: "category_name" },
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
+      },
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
   },
   {
     sequelize,

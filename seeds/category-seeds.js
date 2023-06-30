@@ -5,7 +5,7 @@ const categoryData = [
     category_name: "Breakfast",
   },
   {
-    category_name: "Branch",
+    category_name: "Brunch",
   },
   {
     category_name: "Lunch",
@@ -30,6 +30,13 @@ const categoryData = [
   },
 ];
 
-const seedCategories = () => Category.bulkCreate(categoryData);
+const seedCategories = async () => {
+  try {
+    await Category.bulkCreate(categoryData);
+    console.log("Categories seeded successfully.");
+  } catch (error) {
+    console.error("Error seeding categories:", error);
+  }
+};
 
 module.exports = seedCategories;

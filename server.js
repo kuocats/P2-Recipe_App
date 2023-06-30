@@ -1,47 +1,49 @@
-const path = require('path');
 const express = require("express");
-const routes = require("./routes");
-// import sequelize connection
+const session = require("express-session");
+const exphbs = require("express-handlebars");
+const path = require("path");
+const routes = require("./controllers");
 const sequelize = require("./config/connection");
-// Import and use file upload routes
-const uploadRoutes = require("./routes/api/upload-routes");
-// Import express-session
-const session = require('express-session');
-// Initializes Sequelize with session store
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up sessions
+// Set up Handlebars as the view engine
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+// Set up session
 const sess = {
-  secret: 'Super secret secret',
+  secret: "Super secret secret",
   cookie: {
-    maxAge: 3600,
+    maxAge: 86400000, // 1 day in milliseconds
     httpOnly: true,
     secure: false,
-    sameSite: 'strict',
+    sameSite: "strict",
   },
   resave: false,
   saveUninitialized: true,
-  // Sets up session store
   store: new SequelizeStore({
     db: sequelize,
   }),
 };
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(sess));
 
-app.set('view engine', 'handlebars');
+// Parse incoming JSON data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// turn on routes
+// Serve static files
+app.use(express.static(path.join(__dirname, "public")));
+
+// Set up routes
 app.use(routes);
-app.use("/api/uploads", uploadRoutes);
 
-// sync sequelize models to the database, then turn on the server
+// Sync database and start server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
+  app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+  });
 });
