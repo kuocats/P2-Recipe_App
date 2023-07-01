@@ -19,3 +19,11 @@ header {
 .slide-in-animation {
   animation: slideIn 0.5s ease;
 }
+.recipe-photo {
+  width: 400px;
+  height: auto;
+}
+a {
+  color: black;
+  text-decoration: underline;
+}

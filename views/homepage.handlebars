@@ -5,14 +5,20 @@
     the Recipe Master is here to help! Search by keyword or click on a category
     to browse recipes.
   </p>
-  <form class="search-bar">
-    <label for="search">Search Recipe by Keywords</label>
+
+  <form id="searchForm">
+    <label for="recipeInput">Search Recipe by Keywords</label>
     <input type="text" id="recipeInput" placeholder="Enter a recipe name" />
     <button type="submit">Search</button>
   </form>
-  <div id="recipeContainer"></div>
+  <div id="recipeContainer">
+    Or click here to see all recipes
+
+    <a href="/api/recipes">See All Recipes</a>
+  </div>
 
   <section>
+    <h3>Categories:</h3>
     <div>
       <img src="/images/breakfast.jpg" alt="breakfast img" />
       <a href="category.handlebars">Breakfast</a>
@@ -51,3 +57,4 @@
     </div>
   </section>
 </div>
+<script src="/js/api.js"></script>

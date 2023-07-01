@@ -15,13 +15,13 @@
         <h1>
           Recipe Master
         </h1>
-        <a href="/views/homepage.handlebars">HOME</a>
+        <a href="/">HOME</a>
         <nav>
           <!-- Conditionally render login or logout links -->
           {{#if logged_in}}
             <button class="no-button" id="logout">logout</button>
           {{else}}
-            <a href="../login.handlebars">login</a>
+            <a href="login">login</a>
           {{/if}}
         </nav>
 
@@ -29,7 +29,7 @@
       <main class="container container-fluid mt-5">
         <!-- Render the sub layout -->
         {{{body}}}
-        <script src="/js/api.js"></script>
+
       </main>
       <footer>
 
