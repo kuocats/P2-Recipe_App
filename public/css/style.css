@@ -1,11 +1,4 @@
-body {
-  display: flexbox;
-  background-color: #ff3131;
-  flex-flow: column wrap;
 
-}
-
-header {
   display: flexbox;
   border-bottom: solid black 4px;
   width: 100%;
