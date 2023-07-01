@@ -7,39 +7,33 @@
     <link rel="stylesheet" href="/css/jass.css" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-
-  <body>
-    <div class="flex-column justify-space-around">
-      <header class="display-flex justify-space-between align-center p-2">
-        <img src="/images/logo.jpeg" alt="Recipe Master logo" />
-        <h1>
-          Recipe Master
-        </h1>
-        <a href="/">HOME</a>
-        <nav>
-          <!-- Conditionally render login or logout links -->
-          {{#if logged_in}}
-            <button class="no-button" id="logout">logout</button>
-          {{else}}
-            <a href="login">login</a>
-          {{/if}}
-        </nav>
-
-      </header>
-      <main class="container container-fluid mt-5">
+<body>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <img src="../../public/images/logo.jpeg" alt="Recipe Master logo">
+      <h1>
+        Recipe Master
+      </h1>
+      <nav>
+        <a href="/views/homepage.handlebars">Home</a>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="../login.handlebars">login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      <div class="container-center">
         <!-- Render the sub layout -->
-        {{{body}}}
-
-      </main>
-      <footer>
-
-      </footer>
-    </div>
-
-    <!-- Render script for logged in users only -->
-    {{#if logged_in}}
-      <script src="/js/logout.js"></script>
-    {{/if}}
-  </body>
-
+        {{{ body }}}
+      </div>
+    </main>
+  </div>
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
 </html>

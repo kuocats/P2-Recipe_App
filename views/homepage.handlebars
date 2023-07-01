@@ -1,58 +1,59 @@
-<div>
-  <p>
-    Looking for ideas to spice up your kitchen menu? Or maybe you want to use up
-    an ingredient in your fridge or pantry before it goes bad. Look no further
-    the Recipe Master is here to help! Search by keyword or click on a category
-    to browse recipes.
-  </p>
-
-  <form id="searchForm">
-    <label for="recipeInput">Search Recipe by Keywords</label>
-    <input type="text" id="recipeInput" placeholder="Enter a recipe name" />
-    <button type="submit">Search</button>
-  </form>
-  <div id="recipeContainer">
+ <div class="container-center">
+  <div class="container-center">
+    <p id="rm-description">
+      Looking for ideas to spice up your kitchen menu? 
+      Or maybe you want to use up an ingredient in your fridge or pantry before it goes bad. 
+      Look no further the Recipe Master is here to help!
+      Create a profile and share your favorite recipes!
+      Search by keyword or click on a category to browse recipes.
+    </p>
+    <form class="search-bar">
+      <label for="search">Search Keywords</label>
+      <input class="search-input" id="recipeInput" type="text" id="search-bar-input" >
+      <button>Search</button>
+    </form>
+     <div><p>
     Or click here to see all recipes
-
     <a href="/api/recipes">See All Recipes</a>
+    </p>
   </div>
-
-  <section>
-    <h3>Categories:</h3>
-    <div>
-      <img src="/images/breakfast.jpg" alt="breakfast img" />
+  </div>
+  <section class="categories">
+  <h3>Categories:</h3>
+    <div class="grid-item">
+      <img src="/public/images/breakfast.jpg" alt="breakfast img">
       <a href="category.handlebars">Breakfast</a>
     </div>
-    <div>
-      <img src="/images/brunch.jpg" alt="brunch img" />
+    <div class="grid-item">
+      <img src="/public/images/brunch.jpg" alt="brunch img">
       <a href="category.handlebars">Brunch</a>
     </div>
-    <div>
-      <img src="/images/lunch.jpg" alt="lunch img" />
+    <div class="grid-item">
+      <img src="/public/images/lunch.jpg" alt="lunch img">
       <a href="category.handlebars">Lunch</a>
     </div>
-    <div>
-      <img src="/images/dinner.jpg" alt="dinner img" />
+    <div class="grid-item">
+      <img src="/public/images/dinner.jpg" alt="dinner img">
       <a href="category.handlebars">Dinner</a>
     </div>
-    <div>
-      <img src="/images/salad.jpg" alt="salad img" />
+    <div class="grid-item">
+      <img src="/public/images/salad.jpg" alt="salad img">
       <a href="category.handlebars">Salad</a>
     </div>
-    <div>
-      <img src="/images/burger.jpg" alt="burger img" />
+    <div class="grid-item">
+      <img src="/public/images/burger.jpg" alt="burger img">
       <a href="category.handlebars">Burgers</a>
     </div>
-    <div>
-      <img src="/images/dessert.jpg" alt="dessert img" />
+    <div class="grid-item">
+      <img src="/public/images/dessert.jpg" alt="dessert img">
       <a href="category.handlebars">Dessert</a>
     </div>
-    <div>
-      <img src="/images/pizza.jpg" alt="pizza img" />
+    <div class="grid-item">
+      <img src="/public/images/pizza.jpg" alt="pizza img">
       <a href="category.handlebars">Pizza</a>
     </div>
-    <div>
-      <img src="images/seafood.jpg" alt="seafood img" />
+    <div class="grid-item">
+      <img src="/public/images/seafood.jpg" alt="seafood img">
       <a href="category.handlebars">Seafood</a>
     </div>
   </section>
