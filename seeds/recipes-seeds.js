@@ -192,116 +192,145 @@ const recipeData = [
   },
   {
     recipe_name: "Berry Ice Cream",
-    cook_time:
+    cook_time: 10, 
     category_id: 8, 
     recipe_Ingredient:`3 ripe bananas (peeled and frozen), 1 cup fresh blueberries, 1 1/2 cups fresh strawberries, 1 TSP Pure Orange Extract`,
-    recipe_text:
+    recipe_text: `Add all ingredients to a high powered blender or food processor. Cover and blend until completely creamy. If you have a tamper, use the tamper to mash the fruit to help it blend. If necessary, add 2 to 4 tablespoons of non-dairy milk, such as canned coconut milk, to help the fruit blend. Serve immediately or freeze in a freezer-safe container for later.`,
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "No-Bake Peanut Butter Bars",
-    cook_time:
+    cook_time: 25, 
     category_id: 8, 
     recipe_Ingredient: `1 cup unsalted melted butter, 2 cups animal cracker crumbs (or graham crackers), 2 cups powdered sugar, 1 1/2 cups creamy peanut butter, For the Topping: 1/4 cup peanut butter and 10oz semi-sweet chocolate (chopped)`,
-    recipe_text:
+    recipe_text: `In a mixer or a food processor, combine the first four ingredients until smooth. Spread into a 13x9 baking pan.
+    For the topping, melt the chocolate and peanut butter together in the microwave for 1 minute. Stir. If not completely melted you can heat in 10 second intervals until smooth. Spread over the top of the peanut butter layer.
+    Chill dessert in the refrigerator for about an hour, or in the freezer for 15 minutes. Cut into bars and serve.`,
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "One Bowl Chocolate Chip Banana Bread",
-    cook_time:
+    cook_time: 50, 
     category_id: 8, 
     recipe_Ingredient:`3 ripe banans, 1/3 cup butter (melted), 1/2 cup sugar, 1 Large Egg, 1 TSP vanilla extract, 1 TSP baking soda, pinch of salt, 1 1/2 cups all-purpose flour, 1/2 mini chocolate chips"`,
-    recipe_text:
+    recipe_text: `Preheat oven to 350 degrees F. Spray a 8"x5" (or similar size) loaf pan with baking spray (the kind with flour in it) and set aside.
+    In a large bowl mash the bananas until completely smooth. Stir in the melted butter until smooth.
+    Add the sugar, egg, vanilla, baking soda, salt and flour and stir until the batter is thick and combined. Fold in the chocolate chips then pour/scoop the batter into the prepared loaf pan.
+    Bake for 50 minutes to 1 hour, or until toothpick inserted in center comes out clean. Let cool completely on a wire rack. Slice and enjoy!`,
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "Easy Chocolate Mousse",
-    cook_time:
+    cook_time:5, 
     category_id: 8, 
     recipe_Ingredient:`1 1/2 cups Heavy Whipping Cream, 1/4 cup cocoa powder, 1/2 cup powdered sugar, 1/4 TSP almond extract`,
-    recipe_text:
+    recipe_text: `In a chilled mixing bowl, begin whipping cream.  Whip until frothy and slightly thicken.
+    Add powdered sugar and cocoa powder. Carefully mix until soft peaks form.
+    Add almond extract if desired. Whip until stiff peaks form.
+    Spoon into plastic bag or piping bag with piping tip. Pip into serving bowls or glasses.
+    Enjoy immediately or refrigerate until ready to serve.`, 
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "Mexican Rice",
-    cook_time:
+    cook_time: 30, 
     category_id: 4, 
     recipe_Ingredient:`2 TBSP Olive Oil, 1 small yellow onion (chopped), 1 large jalapeno pepper (stemmed, seeded, and minced), 2 large minced garlic cloves, 2 TBSP Tomato Paste, 1 1/2 cups white long grain rice, 3 1/3 cups low-sodium chicken broth, 1 TSP salt, 1/4 TSP freshly ground black pepper, 1/2 TSP chili powder, 1/2 TSP cumin, 1/2 cup frozen peas (defrosted), 1/4 cup finely chopped cilantro, 2 TSP fresh lime juice`,
-    recipe_text:
+    recipe_text: `Heat the olive oil in a large pot over medium-low heat. Add the onions and jalapeño and cook, stirring frequently, until onions are softened and translucent, about 5 minutes.
+    Turn the heat up to medium and add the tomato paste, garlic and rice; cook, stirring frequently, for about 3 minutes.
+    Add the chicken broth, salt, pepper, chili powder and cumin; turn the heat up and bring to a boil.
+    Reduce the heat to low, cover the pot and simmer until all the liquid is absorbed, about 20 minutes.
+    Add the peas, cilantro and lime juice and fluff the rice with a fork to mix. Let the rice sit for a few moments to "dry out" and lose that wet, just-steamed texture. Taste and adjust seasoning with salt, pepper and lime if necessary.`, 
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "Pan-Fried Brussel Sprouts with Balsamic Glaze",
-    cook_time:
+    cook_time: 25, 
     category_id:  4, 
     recipe_Ingredient: `1lb Brussel Sprouts, 1 TBSP Olive Oil, 1/2 TSP salt, 2 TBSP Balsamic Vinegar, 1 TSP Brown Sugar`,
-    recipe_text:
+    recipe_text: `Rinse and cut the stems off the Brussels sprouts. Remove any extra leaves that fall off. Cut in half.
+    Heat olive oil in a large pan over medium-high heat. Add the Brussels sprouts. Saute for 5 minutes without touching the sprouts. Toss the sprouts in the pan and cook an additional 5 minutes.
+    Add the balsamic and sugar to a bowl and stir to combine. Add the mixture to the pan.
+    Toss to coat. Cook for 1 minute. Toss again. Repeat. Once the glaze has thickened, remove from heat.`,
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "Homemade Garlic Bread",
-    cook_time:
+    cook_time: 20, 
     category_id: 4, 
     recipe_Ingredient:`1 Baguette, 1/2 cup unsalted butter, 2 TBSP Olive oil, 1/4 cup freshly grated Parmesan Cheese, 2 Garlic cloves (finely minced), 2 TBSP Italian parlsey (freshly minced), Generous pinch of Kosher Salt`,
-    recipe_text:
+    recipe_text:`Preheat the oven to 425° and have ready 2 sheet pans. Using a sharp bread knife, cut the loaf on a bias into thick 1" slices. See notes if you'd rather halve the loaf lengthwise.
+    In a small mixing bowl, whisk together the butter and olive oil. Stir in the Parmesan cheese, garlic, parsley, and salt. Apply a thin layer of the mixture to each slice of bread and transfer to the baking sheets, buttered side up.
+    Bake 5-8 minutes, or until golden. Serve right away and enjoy.`,
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "Mac & Cheese",
-    cook_time:
+    cook_time: 30, 
     category_id: 4, 
     recipe_Ingredient:`1/2 lb uncooked elbow macaroni, 3 TBSP butter, 2 TBSP All-Purpose Flour, 1/8 tsp ground black pepper, 1 1/2 cup milk (any kind), 3/4 cup Half-and-Half, 2 1/2 cups shredded cheddar cheese`,
-    recipe_text:
+    recipe_text: `Preheat to 325 degrees and lightly grease a square baking dish. Cook the macaroni. Slightly undercook your noodles (about 1 minute under al-dente). Drain and set aside.
+    Make the roux. Melt the butter in a medium saucepan over medium heat. Blend in the flour, salt, and pepper. Cook for 2 minutes.
+    Add milk and cheese.  Stir in milk and half and half, slowly, stirring constantly. Remove from heat. Add 1 cup shredded cheese to the sauce and stir just until melted. Add the cooked macaroni noodles and toss to coat them in the sauce.
+    Pour into baking dish.  Pour half or the pasta mixture into the prepared baking dish. Sprinkle ½ cup cheese over the top. Pour remaining pasta over it and sprinkle with remaining cheese.`,
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "Roasted Garlic Butter Parmesan Potates",
-    cook_time:
+    cook_time: 25, 
     category_id: 4, 
     recipe_Ingredient:`3lb Baby Red Potatoes (washed and quartered), 1/4 cup olive oil, 6 large garlic cloves (minced), Salt, Pepper, 1 TBSP Italian seasoning, 3/4 freshly grated Parmesan cheese, 1/2 cup unsalted butter, Fresh chopped parsley (for garnish)`,
-    recipe_text:
+    recipe_text:`To prepare your roasted garlic potatoes: Preheat your oven to 400ºF (200°C). Grease a large baking sheet with non-stick spray or olive oil and set aside.
+    Parboil baby red potatoes in boiling water for 5 to 8 minutes to precook them. The potatoes will be more tender on the inside when roasting.
+    In a large bowl, combine 1/4 cup of olive oil, garlic, salt, herbs, pepper, and parmesan cheese together, mixing to combine. Add a little more olive oil if the parmesan cheese has absorbed most of it.
+    Toss parboiled potatoes through the garlic parmesan mixture to evenly coat.
+    Arrange the coated potatoes cut side down in a single layer onto the prepared baking sheet. Place the baking sheet on the bottom rack of the oven. Bake your garlic butter parmesan potatoes for 25 minutes, turning after 15 minutes with tongs or a spatula, until potatoes are browned and crisped at the edges.
+    In the meantime, gently melt butter in the microwave and combine with fresh chopped parsley. Remove the roasted potatoes from the oven, and drizzle with the butter parsley sauce. Add bacon bits, toss to coat well, and serve your roasted potatoes with garlic butter parmesan immediately. Enjoy!`,
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "Classic Mimosa",
-    cook_time:
+    cook_time: 2, 
     category_id: 9, 
     recipe_Ingredient:`1 bottle of Champagne Prosecco, or Cava, 3 cups Orange Juice`,
-    recipe_text:
+    recipe_text: `Pour the sparkling wine into the Champagne flutes, filling each glass about half full. Pour the orange juice on top to fill each glass and serve.`,
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "Fresh Strawberry Margarita",
-    cook_time:
+    cook_time: 5, 
     category_id: 9, 
-    recipe_Ingredient: `1 cup fresh strawberries(stems removed and halved), 2 TBSP Maple Syrup, 1/4 cup tequila, 1/2 cup ice, 1/4 cup lime juice`,
-
-    recipe_text:
+    recipe_Ingredient: `1 cup fresh strawberries(stems removed and halved), 2 TBSP Maple Syrup, 1/4 cup tequila, 1/2 cup ice, 1/4 cup lime juice`, 
+    recipe_text: `To a high-speed blender, add your sliced strawberries, maple syrup, tequila, ice, and lime juice. Blend on high until smooth. Serve over ice or straight up!
+    Can be made up to 1 day ahead and stored in the refrigerator. Or, freeze into ice cubes and blend with a small amount of extra water.`
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "Iced Brown Sugar Oatmilk Shaken Espresso",
-    cook_time:
+    cook_time: 15, 
     category_id: 9, 
     recipe_Ingredient: `Brown Sugar Syrup: 4 TBSP lightly packed brown sugar, 1/2 TSP ground cinnamon, 6 TBSP water, 1 TSP vanilla extract ; 
     Lattes: 2 Double Shots Expresso, 1 Mason Jar with a few ice cubes, 2 glassed filled halfway with ice, Oat Milk`,
-    recipe_text:
+    recipe_text:`In a small frying pan or pot on the stove, add the syrup ingredients and heat on medium-high, whisking to combine. Once it starts simmering, lower the heat to medium-low and simmer about 3-5 minutes, stirring frequently, until sugar has completely dissolved and syrup has thickened just slightly. Remove from the heat and set aside.
+    Brew two shots of espresso or about 1/2 cup of very strong coffee. Add to the mason jar with 3 tbsp of syrup and a few ice cubes and shake vigorously for about 1-2 minutes.
+    Add some more ice to each glass. Divide the espresso mixture between the glasses. Add oat milk to top it up. Stir and enjoy!`,
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "Fresh Mango Smoothie With Yogurt",
-    cook_time:
+    cook_time: 10, 
     category_id: 9, 
     recipe_Ingredient: `1 cup Mango (peeled and diced), 1 cup Plain Nonfat Yogurt (or Vanilla Yogurt), 1/2 cup crushed ice, Milk or Water (optional)`,
-    recipe_text:
+    recipe_text:`Gather the ingredients. Place the diced mango, yogurt, and ice in a blender. Blend or process until smooth.
+    If the smoothie is too thick, add a little milk or water and blend again.Serve immediately. Enjoy.`
     picture: "path/to/image.jpg",
   },
   {
     recipe_name: "Orange Spinach Banana Smoothie",
-    cook_time:
+    cook_time: 5, 
     category_id: 9, 
     recipe_Ingredient:`1 cup Spinach, 3/4 cup coconut water, 1/2 Lemon (peeled), 1/2 Banana, 1 Orange (peeled), Optional: 1 serving protein powder`,
-    recipe_text:
+    recipe_text:`Peel and slice oranges to help blend easier. Blend spinach, coconut water and orange together until smooth. Add remaining ingredients and blend again.`,
     picture: "path/to/image.jpg",
   },
 
