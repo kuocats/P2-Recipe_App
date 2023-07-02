@@ -15,7 +15,6 @@ const upload = multer({ storage: storage });
 
 // POST route for file upload
 router.post("/", upload.single("file"), (req, res) => {
-  // Handle the file upload logic here
   // The uploaded file is available as `req.file`
   const uploadedFile = req.file;
 
