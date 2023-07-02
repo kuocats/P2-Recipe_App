@@ -5,28 +5,28 @@ const categoryData = [
     category_name: "Breakfast",
   },
   {
-    category_name: "Brunch",
-  },
-  {
     category_name: "Lunch",
   },
   {
     category_name: "Dinner",
   },
   {
-    category_name: "Salads",
-  },
-  {
-    category_name: "Burgers",
-  },
-  {
-    category_name: "Desserts",
-  },
-  {
-    category_name: "Pizza",
+    category_name: "Sides",
   },
   {
     category_name: "Seafood",
+  },
+  {
+    category_name: "Bread",
+  },
+  {
+    category_name: "Rice",
+  },
+  {
+    category_name: "Dessert",
+  },
+  {
+    category_name: "Drinks",
   },
 ];
 
