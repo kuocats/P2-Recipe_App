@@ -302,7 +302,7 @@ const recipeData = [
     category_id: 9, 
     recipe_Ingredient: `1 cup fresh strawberries(stems removed and halved), 2 TBSP Maple Syrup, 1/4 cup tequila, 1/2 cup ice, 1/4 cup lime juice`, 
     recipe_text: `To a high-speed blender, add your sliced strawberries, maple syrup, tequila, ice, and lime juice. Blend on high until smooth. Serve over ice or straight up!
-    Can be made up to 1 day ahead and stored in the refrigerator. Or, freeze into ice cubes and blend with a small amount of extra water.`
+    Can be made up to 1 day ahead and stored in the refrigerator. Or, freeze into ice cubes and blend with a small amount of extra water.`, 
     picture: "path/to/image.jpg",
   },
   {
@@ -322,7 +322,7 @@ const recipeData = [
     category_id: 9, 
     recipe_Ingredient: `1 cup Mango (peeled and diced), 1 cup Plain Nonfat Yogurt (or Vanilla Yogurt), 1/2 cup crushed ice, Milk or Water (optional)`,
     recipe_text:`Gather the ingredients. Place the diced mango, yogurt, and ice in a blender. Blend or process until smooth.
-    If the smoothie is too thick, add a little milk or water and blend again.Serve immediately. Enjoy.`
+    If the smoothie is too thick, add a little milk or water and blend again.Serve immediately. Enjoy.`, 
     picture: "path/to/image.jpg",
   },
   {

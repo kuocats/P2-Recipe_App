@@ -28,6 +28,9 @@ const ingredientData = [
   {
     ingredient_name: "Olive oil",
   },
+  {
+    ingredient_name: "Milk",
+  }
 ];
 
 const seedIngredients = () => Ingredient.bulkCreate(ingredientData);
