@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Recipe, User } = require("../models");
 const withAuth = require("../utils/auth");
+const { route } = require("./homeRoutes");
 
 router.get("/", async (req, res) => {
   try {
@@ -51,6 +52,8 @@ router.get("/recipe/:id", async (req, res) => {
 
 // Use withAuth middleware to prevent access to route
 router.get("/profile", withAuth, async (req, res) => {
+  console.log("Accessing /profile route.");
+  console.log("User:", req.user);
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -77,6 +80,10 @@ router.get("/login", (req, res) => {
   }
 
   res.render("login");
+});
+
+router.get("/recipes", (req, res) => {
+  res.render("recipes");
 });
 
 module.exports = router;

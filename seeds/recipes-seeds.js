@@ -12,7 +12,7 @@ const recipeData = [
     Season with additional salt and pepper, if desired.
     Serve the fried egg immediately as a standalone dish or as part of a breakfast or brunch.
     Enjoy your delicious fried egg!`,
-    picture: "path/to/image.jpg",
+    picture: "uploads/image.jpeg",
   },
   {
     recipe_name: "Beef steak",
@@ -25,7 +25,7 @@ const recipeData = [
     If using a grill, lightly oil the grates. If using a skillet, add a drizzle of olive oil to coat the bottom.
     Carefully place the steak onto the hot grill or skillet. If using a skillet, you can also add a knob of butter for extra flavor.
     Cook the steak for about 4-5 minutes per side for medium-rare, or adjust the cooking time to your preferred doneness. You can use a meat thermometer to check the internal temperature (120-130°F / 49-54°C for medium-rare).`,
-    picture: "path/to/image.jpg",
+    picture: "uploads/image.jpeg",
   },
   {
     recipe_name: "Pizza Margherita",
@@ -58,7 +58,7 @@ const recipeData = [
     Place the pizzas in the preheated oven and bake for about 12-15 minutes or until the crust is golden and the cheese is bubbly and slightly browned.
     
     Remove the pizzas from the oven and let them cool for a few minutes.`,
-    picture: "path/to/image.jpg",
+    picture: "uploads/image.jpeg",
   },
   {
     recipe_name: "Scallops with lemon",
@@ -85,7 +85,7 @@ const recipeData = [
     Remove the skillet from the heat.
     
     Serve the scallops with lemon immediately, garnished with freshly chopped parsley.`,
-    picture: "path/to/image.jpg",
+    picture: "uploads/image.jpeg",
   },
   {
     recipe_name: " Angus Burder with bacon",
@@ -106,7 +106,7 @@ Top each patty with a slice of bacon, lettuce leaves, tomato slices, red onion s
 Spread your preferred condiments on the top half of the buns, such as ketchup, mustard, or mayo.
 
 Place the top bun on the assembled burger.`,
-    picture: "path/to/image.jpg",
+    picture: "uploads/image.jpeg",
   },
 ];
 
