@@ -5,22 +5,25 @@ const ingredientData = [
     ingredient_name: "Eggs",
   },
   {
-    ingredient_name: "Beef",
+    ingredient_name: "Chicken",
   },
   {
-    ingredient_name: "Bacon",
-  },
-  {
-    ingredient_name: "Wheat bun",
+    ingredient_name: "Tuna",
   },
   {
     ingredient_name: "Cheese",
   },
   {
+    ingredient_name: "Butter",
+  },
+  {
     ingredient_name: "Tomato",
   },
   {
-    ingredient_name: "Marinara sauce",
+    ingredient_name: "Banana",
+  },
+  {
+    ingredient_name: "Garlic",
   },
   {
     ingredient_name: "Olive oil",
