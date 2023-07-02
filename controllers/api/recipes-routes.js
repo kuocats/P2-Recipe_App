@@ -26,12 +26,9 @@ router.get("/", (req, res) => {
     res.json(recipeData);
   });
 });
-
 // Get one Recipe
 router.get("/:name", (req, res) => {
-  const recipeName = req.params.name;
-  const searchWord = req.query.word;
-
+  const searchWord = req.params.name; // Use req.params.name instead of req.query.name
   const searchWords = searchWord ? searchWord.split(" ") : [];
 
   const conditions = searchWords.map((word) => ({
@@ -40,10 +37,9 @@ router.get("/:name", (req, res) => {
     },
   }));
 
-  Recipe.findOne({
+  Recipe.findAll({
     where: {
-      recipe_name: recipeName,
-      [Op.or]: conditions,
+      [Op.and]: conditions,
     },
     include: [
       { model: Category, as: "category" },
@@ -63,9 +59,9 @@ router.get("/:name", (req, res) => {
 // Create new Recipe
 
 router.post("/", upload.single("photo"), (req, res) => {
-  /* req.body should look like this...
+  /* create post json example, do not delete.
     {
-      picture: "path/to/image.jpg"
+      picture: "uploads/image.jpg"
       recipe_name: "Butter Chicken",
       recipe_text: "Recipe instructions...",
       cook_time: 3,
