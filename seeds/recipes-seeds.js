@@ -5,7 +5,6 @@ const recipeData = [
     recipe_name: "Breakfast Fried Rice",
     cook_time: 5,
     category_id: 1,
-<<<<<<< HEAD
     recipe_Ingredient: `2 Eggs, 5 Slices of Bacon, 3 green onions (thinly sliced), 3 cups day-old cooked rice, 1/3 cup low-sodium soy sauce, 1 TBSP rice vinegar, 1 TBSP toasted sesame seeds, 1/4 tsp crushed red pepper flakes, 1 TBSP unsalted butter`,
     recipe_text: `In a heavy-bottomed skillet over medium heat, cook the bacon, turning it until it's browned evenly. Remove the bacon from the pan and let drain on paper towels. Once the bacon is cool enough to handle, roughly chop.
     In a large skillet over medium heat, warm the sesame oil until shimmering. Add 2 of the sliced green onions, and cook for 2 to 3 minutes.
@@ -37,62 +36,6 @@ const recipeData = [
     over the avocado. Slice the hard-boiled egg into coins, and then place them on top of the smashed avocado. Finish by sprinkling 
     a little pepper, salt, and a very light drizzle of olive oil on top of the egg.`,
     picture: "path/to/image.jpg",
-=======
-    recipe_text: `Heat a non-stick frying pan over medium heat. Add a small amount of butter to the pan and let it melt and coat the surface. Crack the egg into a small bowl or directly into the pan, being careful not to break the yolk. Sprinkle a pinch of salt and pepper over the egg.
-    Allow the egg to cook undisturbed for about 2 minutes or until the whites are set but the yolk is still runny.
-    If desired, you can carefully flip the egg using a spatula to cook the other side for an additional 30 seconds to 1 minute.
-    Once cooked to your liking, remove the fried egg from the pan and transfer it to a plate.
-    Season with additional salt and pepper, if desired.
-    Serve the fried egg immediately as a standalone dish or as part of a breakfast or brunch.
-    Enjoy your delicious fried egg!`,
-    picture: "uploads/image.jpeg",
-  },
-  {
-    recipe_name: "Beef steak",
-    cook_time: 15,
-    category_id: 4,
-    recipe_text: `Remove the beef steak from the refrigerator and let it come to room temperature for about 30 minutes.
-    Preheat a grill or a cast-iron skillet over high heat. Make sure it's very hot before cooking the steak.
-    While the grill or skillet is heating, pat the steak dry with paper towels and season it generously with salt and pepper on both sides.
-    If using garlic cloves and fresh herbs, you can rub them onto the steak to add extra flavor.
-    If using a grill, lightly oil the grates. If using a skillet, add a drizzle of olive oil to coat the bottom.
-    Carefully place the steak onto the hot grill or skillet. If using a skillet, you can also add a knob of butter for extra flavor.
-    Cook the steak for about 4-5 minutes per side for medium-rare, or adjust the cooking time to your preferred doneness. You can use a meat thermometer to check the internal temperature (120-130°F / 49-54°C for medium-rare).`,
-    picture: "uploads/image.jpeg",
-  },
-  {
-    recipe_name: "Pizza Margherita",
-    cook_time: 45,
-    category_id: 8,
-    recipe_text: `In a small bowl, combine the warm water, sugar, and yeast. Stir gently and let it sit for about 5 minutes until the mixture becomes frothy.
-
-    In a large mixing bowl, combine the flour and salt. Make a well in the center and pour in the yeast mixture and olive oil.
-    
-    Stir the mixture with a wooden spoon until it comes together, then transfer it to a lightly floured surface.
-    
-    Knead the dough for about 5-7 minutes until it becomes smooth and elastic. Add more flour if needed to prevent sticking.
-    
-    Place the dough in a greased bowl and cover it with a clean kitchen towel. Let it rise in a warm area for about 1-2 hours until it doubles in size.
-    
-    Preheat your oven to the highest temperature (typically around 500°F/260°C).
-    
-    Once the dough has risen, punch it down and divide it into two equal portions. Roll out each portion into a round pizza shape on a lightly floured surface.
-    
-    Transfer the rolled-out dough to a baking sheet or pizza stone.
-    
-    Spread half of the tomato sauce or crushed tomatoes over each pizza dough, leaving a small border around the edges.
-    
-    Sprinkle the shredded mozzarella cheese evenly over the sauce.
-    
-    Tear fresh basil leaves and scatter them on top of the cheese. Drizzle a little extra-virgin olive oil over the pizza.
-    
-    Season with salt and pepper to taste.
-    
-    Place the pizzas in the preheated oven and bake for about 12-15 minutes or until the crust is golden and the cheese is bubbly and slightly browned.
-    
-    Remove the pizzas from the oven and let them cool for a few minutes.`,
-    picture: "uploads/image.jpeg",
->>>>>>> 848a9f70f893d4b52bedd62a624a3407eb564c72
   },
   {
     recipe_name: "Quick Overnight Oats",
@@ -126,7 +69,6 @@ const recipeData = [
   {
     recipe_name: "Juicy BLT",
     cook_time: 10,
-<<<<<<< HEAD
     category_id: 2, 
     recipe_Ingredient: `4 Thick-Cut Bacon, 1 Heirloom Tomato, 1 TSP red wine vinegar, 1 1/2 TBSP Extra-Virgin Olive Oil, Salt, Pepper, 2 Slices of Bread, 1/3 Cup Mayonnaise, 3 Butter Lettuce Leaves`,
     recipe_text: `Heat a cast iron skillet over medium heat and melt the butter in the pan.
@@ -138,231 +80,227 @@ const recipeData = [
   },
   {
     recipe_name: "Tuna Melt"
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
+    cook_time: 5,
+    category_id: 2, 
+    recipe_Ingredient: `1 can Albacore White Tuna (drained), 1/3 cup Mayonnaise, 2 TBSP chopped red onion, 2 TSP lemon juice, Salt, Pepper, 2 Slices of Bread, 2 Slices of Cheese")`,
+    recipe_text: `In a medium bowl, combine tuna, mayonnaise, onion, lemon juice, and oregano and stir until thoroughly combined. Add more mayo if you want mixture wetter. Season with salt and pepper, to taste.
+    Butter outsides of bread slices. Layer tuna mixture on inside portion of bread. Add cheese, desired toppings, then another piece of cheese and top with bread. Heat a skillet over medium-low heat. Add sandwiches 
+    and cook until bottom bread is toasted, and cheese is warm. Flip and cook on the other side until bread is toasted and cheese has melted.`,
     picture: "path/to/image.jpg",
-=======
-    category_id: 9,
-    recipe_text: `Season the scallops with salt and pepper on both sides.
-    
-    Heat olive oil in a large skillet over medium-high heat.
-    
-    Once the oil is hot, add the scallops to the skillet in a single layer. Make sure not to overcrowd the pan. If necessary, cook them in batches.
-    
-    Cook the scallops for about 2-3 minutes per side until they are golden brown and opaque in the center. Avoid overcooking as scallops can become rubbery.
-    
-    Remove the cooked scallops from the skillet and set them aside.
-    
-    In the same skillet, add minced garlic and cook for about 1 minute until fragrant.
-    
-    Add lemon zest and lemon juice to the skillet. Stir well to combine with the garlic.
-    
-    Bring the lemon-garlic mixture to a simmer and cook for another 1-2 minutes until the sauce slightly thickens.
-    
-    Return the cooked scallops to the skillet and toss them gently in the lemon-garlic sauce to coat.
-    
-    Remove the skillet from the heat.
-    
-    Serve the scallops with lemon immediately, garnished with freshly chopped parsley.`,
-    picture: "uploads/image.jpeg",
   },
   {
-    recipe_name: " Angus Burder with bacon",
-    cook_time: 29,
+    recipe_name: "Easy Pasta Salad",
+    cook_time: 30, 
+    category_id: 2, 
+    recipe_Ingredient:`1 bottle of Italian Pasta Salad Dressing, 1lb Uncooked Pasta, 3 cups cherry tomatoes (cut in half), 8oz fresh mozzarella cheese balls (cut in half), 1lb salami (cut in cubes), 3/4 kalamata olives (sliced), 3/4 cup sliced Kalamata Olives, 3/4 cup pepperoncini, 1/2 cup sliced red onion, 1/2 fresh parsley (chopped)`,
+    recipe_text: `Cook pasta according to package directions, in salted water for more flavor. Allow to cool slightly and toss with a little oil to prevent sticking.
+    Blend up the dressing, or shake together in a jar. Toss all ingredients together! Use about three-fourths of the dressing, and then save the rest of the dressing to
+    add to leftovers. Keep in the fridge for 2-3 days. It actually tastes best the day AFTER you make it.`,
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Chicken Caesar Salad",
+    cook_time: 20, 
+    category_id: 2, 
+    recipe_Ingredient:`1 bottle of Caesar Dressing, 4 chicken breasts, 2 TBSP Olive Oil, 2 TBSP Cajun Seasoning, 8 cups romaine lettuce (washed & dried), 1 1/2 cups croutons, 3/4 cup parmesan cheese (grated)`,
+    recipe_text: `Combine all dressing ingredients and set aside. Combine the chicken breasts and 1 tablespoon olive oil in a small bowl. Season with cajun spice, making sure to cover all of the chicken.
+    Heat up a large pan with remaining olive oil, add the chicken once hot and cook on each side ensuring that a dark crust is forming, "blackening" the chicken.
+    Cook until chicken has reached 165°F internally or place in the oven to finish them. Once cooled, cut chicken breasts into slices. In a large bowl, cut romaine 
+    lettuce into bite size pieces. Add croutons, parmesan cheese, and prepared chicken. Top with dressing and toss.`,
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Chicken and Mushroom Risotto",
+    cook_time: 40,
+    category_id: 3, 
+    recipe_Ingredient: `1 TBSP Olive Oil, 2.5oz Bacon, 12 oz Chicken Thigh Fillets, 13 oz Mushrooms, 2 TBSP Unsalted Butter, 2 Minced Garlic Cloves, 1 Onion, 1/2 cup White Wine, 1 1/4 cups uncooked arborio risotto rice, 4 cups Chicken Broth`,
+    recipe_text: `Heat 1 tsp oil in a pot or skillet over high heat. Add bacon and cook until golden. Transfer to small microwave-proof bowl.
+    Leave about 1 tbsp bacon fat in pot - discard excess. Add chicken* and cook until browned and cooked through. Transfer to separate bowl.
+    Add mushrooms* and cook until light golden. Add to bowl with chicken. Turn heat down to medium and return pot to the stove. Add butter, and melt. Add garlic and onion. Sauté for 3 minutes or until softened.
+    Turn heat up to high, add rice and stir until the grains become partially translucent - no longer than 1 minute. 
+    Add wine and cook, scraping the bottom of the pot (to get any brown bits), until the alcohol smell evaporates ~ 2 minutes.
+    Turn heat down to medium low. Add about 3 cups of stock. Then leave it, uncovered, stirring just once or twice, until most of the liquid has been absorbed.
+    Check firmness of rice and add 1/2 cup of stock at a time, stirring in between until absorbed, until the rice is cooked to your taste. 
+    Add chicken and mushrooms back into the risotto towards the end, just to heat through. Right at the end when the risotto is ready, add a splash of chicken broth to make the risotto to make it slightly soupy, then take it off the stove.
+    Add butter (the more the better!) and parmesan, then stir vigorously (activates the starch and makes it super creamy). The excess liquid will evaporate quickly, so add more if you want a soupier risotto, like what you get at posh restaurants.
+    Serve Immediately. Garnish with reheated bacon, and extra parmesan and parsley if desired.`, 
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Clam Chowder in a Bread Bowl", 
+    cook_time: 45, 
     category_id: 3,
-    recipe_text: `Cook the bacon in a separate skillet over medium heat until crispy. Once cooked, transfer the bacon to a paper towel-lined plate to drain excess grease.
+    recipe_Ingredient: `6 strips bacon (diced), 1 cups onion (diced), 1 cups celery (diced), 1/2 cups carrots (sliced), 3 cups baby red potatoes (diced),  2 Minced Garlic Cloves, 2 TBSP Butter, 1/3 cup flour, 16oz bottle of clam juice, 2 cups of seafood/or chicken stock, 1/2 TBSP fresh thyme, 2 bay leaves, 2 cups heavy cream, 13 oz. chopped clams`,
+    recipe_text: `In a large stock pot or dutch oven, cook bacon on medium low heat to slowly render out the fat, and make bacon crispy. Remove cooked bacon with a slotted spoon, saving back 2 tablespoons of the rendered fat in the pot.
+    Saute onion, celery and carrots in the fat until soft and translucent, about 6-8 minutes. Add in minced garlic and salt and cook for another 30 seconds.
+    Add flour to make a roux and cook for 1-2 minutes, whisking constantly. Whisk in clam juice, broth, thyme and bay leaves until smooth and combined. Add in potatoes and bring to a boil, simmer until potatoes are tender 10-12 minutes. Scrape the bottom of the pot frequently with a wood spoon to prevent scorching.
+    Add in heavy cream and canned clams, bring to a low simmer to warm through, but do not bring to a full boil.
+    To serve in a bread bowl: cut the tops off of the bread bowl, about ¼ of the way down the bowl. Scoop out most of the inside of the bread, and ladle in soup, top with reserved bacon. Serve with the top and inside bread pieces for dipping.`, 
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Baked Rigatoni Pasta",
+    cook_time: 75, 
+    category_id: 3, 
+    recipe_Ingredient: `2 TSP Olive Oil, 1lb Ground Beef, 1lb mild ground Italian Sausage, 1/2 cup onion (finely chopped), 2 TSP garlic (minced), 24oz jar marinara sauce, 8oz can tomato sauce, Salt, Pepper`,
+    recipe_text:`Preheat the oven to 350 degrees F. Coat a 9"x13" pan with cooking spray.
+    FOR THE SAUCE: 
+    Heat the oil in a large pan over medium high heat. Add the ground beef and sausage to the pan. Season the meat with salt and pepper.
+    Cook the meat for 3-4 minutes, breaking it up into small pieces with a spoon. Add the onion to the pan. Cook for an additional 5 minutes or until meat is browned and cooked through and onion is softened.
+    Add the garlic and cook for 30 seconds. Add the marinara sauce and tomato sauce to the pan and bring the sauce to a simmer.
+    Let the sauce simmer for 5 minutes or until just thickened.
+   
+    FOR ASSEMBLY;
+    Toss the cooked rigatoni with the sauce.
+    Pour the pasta mixture into the prepared pan and top with mozzarella cheese.
+    Bake covered for 20 minutes, then uncover and bake for another 15-20 minutes or until pasta is bubbly and cheese is melted and browned.
+    
+    Sprinkle with parsley. Let stand for 5 minutes, then serve.`, 
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "5-Minute Kimchi Ramen",
+    cook_time: 5, 
+    category_id: 3, 
+    recipe_Ingredient: `1 package Korean Instant Ramen, 1/2 cup chopped kimchi, 1/2 TBSP Korean Chili Flakes, 2oz Canned Tuna in Oil, 1 chopped green onion, 1 TSP Sesame Oil, 1 1/2 TSP toasted sesame seeds`,
+    recipe_text: `Bring water to a boil over high heat. Add 3/4 of the seasoning powder packet and chopped kimchi.
+    When the water returns to a boil, reduce the heat to medium and add the ramen noodles, dried vegetable flakes, canned tuna (about 1/4 to 1/2 amount per serving), and Korean chili flakes (optional).
+    Use chopsticks or kitchen tongs to lift up the noodles a few times while boiling to separate them and ensure even cooking. Cook until the noodles reach your desired doneness, usually around 3-4 minutes.
+    Turn off the heat, add green onion (or Asian leek), and drizzle with sesame oil and toasted sesame seeds. Serve immediately and enjoy your delicious Kimchi Ramen.`,
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "BBQ Chicken Pizza",
+    cook_time: 35, 
+    category_id: 3,
+    recipe_Ingredient:`1lb refrigerated pizza dough (divided into 2 pieces), 2 cups cooked shredded chicken, 3/2 cup BBQ Sauce, 1/2 medium red onion (thinly sliced), 1/3 cup shredded gouda, 2 TBSP freshly chopped cilantro, Pinch crushed red pepper flakes (optional)`,
+    recipe_text: `Preheat oven to 500°. Line two large baking sheets with parchment paper and grease with cooking spray. In a medium bowl, stir together chicken and 1/4 cup barbecue sauce. On a lightly floured surface, roll out pizza dough into a large circle, then slide 
+    onto prepared baking sheet. Top each pizza with 1/4 cup barbecue sauce, then half the chicken mixture, spreading in an even layer and leaving 1" around the edge bare. Next add an even layer of mozzarella and red onion, then top with gouda. Sprinkle with crushed red pepper 
+    flakes if using. Bake until cheese is melty and dough is cooked through, 20 to 25 minutes. Garnish with cilantro before serving.`,
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Thin and Crispy Chocolate Chip Cookies",
+    cook_time: 30, 
+    category_id: 8, 
+    recipe_Ingredient: `1 1/3 cup all purpose flour, 1/2 TSP baking soda, 1/4 TSP fine salt, 1 stick unsalted butter (melted and cooled), 1/2 cup grandulated sugar, 1/3 packed light brown sugar, 2 TBSP light corn syrup, 1 large egg, 1 TBSP milk, 2 TSP vanilla extract, 1 cup semisweet chocolate chips`, 
+    recipe_text: `Preheat the oven to 350°F. Line baking sheets with parchment paper.  In a medium bowl, whisk together the flour, baking soda, and salt.
+    In a large bowl, vigorously beat the butter, granulated sugar, brown sugar, and corn syrup with a spatula until very well combined. Add the egg, milk, and vanilla and beat vigorously until very well combined. Gradually add the flour mixture and stir until just combined, being careful not to over-mix. Gently stir in the chocolate chips. The dough will be very loose, sticky, and more like batter in consistency.
+    Using a medium (1 1/2-tablespoon size) spring-loaded scoop, drop balls of dough onto the prepared baking sheets, spacing at least 2 1/2 inches apart. Don't worry if the dough isn't perfectly round. Bake for about 12 minutes, or until golden brown and flat, rotating the sheets halfway through baking. Bake one sheet at a time for even cooking. When you remove the baking sheet from the oven, tap it against the counter.
+    Let the cookies cool on the baking sheets for 5 minutes before using a thin spatula to remove to wire racks to cool completely. Store in an airtight container for up to 3 days at room temperature. If desired, reheat the cookies in a 350°F oven for 3 to 5 minutes, or until warmed through.`,
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Berry Ice Cream",
+    cook_time:
+    category_id: 8, 
+    recipe_Ingredient:`3 ripe bananas (peeled and frozen), 1 cup fresh blueberries, 1 1/2 cups fresh strawberries, 1 TSP Pure Orange Extract`,
+    recipe_text:
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "No-Bake Peanut Butter Bars",
+    cook_time:
+    category_id: 8, 
+    recipe_Ingredient: `1 cup unsalted melted butter, 2 cups animal cracker crumbs (or graham crackers), 2 cups powdered sugar, 1 1/2 cups creamy peanut butter, For the Topping: 1/4 cup peanut butter and 10oz semi-sweet chocolate (chopped)`,
+    recipe_text:
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "One Bowl Chocolate Chip Banana Bread",
+    cook_time:
+    category_id: 8, 
+    recipe_Ingredient:`3 ripe banans, 1/3 cup butter (melted), 1/2 cup sugar, 1 Large Egg, 1 TSP vanilla extract, 1 TSP baking soda, pinch of salt, 1 1/2 cups all-purpose flour, 1/2 mini chocolate chips"`,
+    recipe_text:
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Easy Chocolate Mousse",
+    cook_time:
+    category_id: 8, 
+    recipe_Ingredient:`1 1/2 cups Heavy Whipping Cream, 1/4 cup cocoa powder, 1/2 cup powdered sugar, 1/4 TSP almond extract`,
+    recipe_text:
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Mexican Rice",
+    cook_time:
+    category_id: 4, 
+    recipe_Ingredient:`2 TBSP Olive Oil, 1 small yellow onion (chopped), 1 large jalapeno pepper (stemmed, seeded, and minced), 2 large minced garlic cloves, 2 TBSP Tomato Paste, 1 1/2 cups white long grain rice, 3 1/3 cups low-sodium chicken broth, 1 TSP salt, 1/4 TSP freshly ground black pepper, 1/2 TSP chili powder, 1/2 TSP cumin, 1/2 cup frozen peas (defrosted), 1/4 cup finely chopped cilantro, 2 TSP fresh lime juice`,
+    recipe_text:
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Pan-Fried Brussel Sprouts with Balsamic Glaze",
+    cook_time:
+    category_id:  4, 
+    recipe_Ingredient: `1lb Brussel Sprouts, 1 TBSP Olive Oil, 1/2 TSP salt, 2 TBSP Balsamic Vinegar, 1 TSP Brown Sugar`,
+    recipe_text:
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Homemade Garlic Bread",
+    cook_time:
+    category_id: 4, 
+    recipe_Ingredient:`1 Baguette, 1/2 cup unsalted butter, 2 TBSP Olive oil, 1/4 cup freshly grated Parmesan Cheese, 2 Garlic cloves (finely minced), 2 TBSP Italian parlsey (freshly minced), Generous pinch of Kosher Salt`,
+    recipe_text:
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Mac & Cheese",
+    cook_time:
+    category_id: 4, 
+    recipe_Ingredient:`1/2 lb uncooked elbow macaroni, 3 TBSP butter, 2 TBSP All-Purpose Flour, 1/8 tsp ground black pepper, 1 1/2 cup milk (any kind), 3/4 cup Half-and-Half, 2 1/2 cups shredded cheddar cheese`,
+    recipe_text:
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Roasted Garlic Butter Parmesan Potates",
+    cook_time:
+    category_id: 4, 
+    recipe_Ingredient:`3lb Baby Red Potatoes (washed and quartered), 1/4 cup olive oil, 6 large garlic cloves (minced), Salt, Pepper, 1 TBSP Italian seasoning, 3/4 freshly grated Parmesan cheese, 1/2 cup unsalted butter, Fresh chopped parsley (for garnish)`,
+    recipe_text:
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Classic Mimosa",
+    cook_time:
+    category_id: 9, 
+    recipe_Ingredient:`1 bottle of Champagne Prosecco, or Cava, 3 cups Orange Juice`,
+    recipe_text:
+    picture: "path/to/image.jpg",
+  },
+  {
+    recipe_name: "Fresh Strawberry Margarita",
+    cook_time:
+    category_id: 9, 
+    recipe_Ingredient: `1 cup fresh strawberries(stems removed and halved), 2 TBSP Maple Syrup, 1/4 cup tequila, 1/2 cup ice, 1/4 cup lime juice`,
 
-Place the burger patties on the preheated grill or skillet. Cook for about 4-5 minutes on each side for medium doneness or adjust the cooking time to your desired level of doneness.
-
-During the last couple of minutes of cooking, place a slice of cheddar cheese on each patty to melt.
-
-While the burgers are cooking, lightly toast the hamburger buns on the grill or in a toaster.
-
-Assemble the burgers by placing a cooked patty on the bottom half of each bun.
-
-Top each patty with a slice of bacon, lettuce leaves, tomato slices, red onion slices, and pickles if desired.
-
-Spread your preferred condiments on the top half of the buns, such as ketchup, mustard, or mayo.
-
-Place the top bun on the assembled burger.`,
-    picture: "uploads/image.jpeg",
->>>>>>> 848a9f70f893d4b52bedd62a624a3407eb564c72
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
     recipe_text:
     picture: "path/to/image.jpg",
   },
   {
-    recipe_name:
+    recipe_name: "Iced Brown Sugar Oatmilk Shaken Espresso",
     cook_time:
-    category_id:
-    recipe_Ingredient:
+    category_id: 9, 
+    recipe_Ingredient: `Brown Sugar Syrup: 4 TBSP lightly packed brown sugar, 1/2 TSP ground cinnamon, 6 TBSP water, 1 TSP vanilla extract ; 
+    Lattes: 2 Double Shots Expresso, 1 Mason Jar with a few ice cubes, 2 glassed filled halfway with ice, Oat Milk`,
     recipe_text:
     picture: "path/to/image.jpg",
   },
   {
-    recipe_name:
+    recipe_name: "Fresh Mango Smoothie With Yogurt",
     cook_time:
-    category_id:
-    recipe_Ingredient:
+    category_id: 9, 
+    recipe_Ingredient: `1 cup Mango (peeled and diced), 1 cup Plain Nonfat Yogurt (or Vanilla Yogurt), 1/2 cup crushed ice, Milk or Water (optional)`,
     recipe_text:
     picture: "path/to/image.jpg",
   },
   {
-    recipe_name:
+    recipe_name: "Orange Spinach Banana Smoothie",
     cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
-    recipe_text:
-    picture: "path/to/image.jpg",
-  },
-  {
-    recipe_name:
-    cook_time:
-    category_id:
-    recipe_Ingredient:
+    category_id: 9, 
+    recipe_Ingredient:`1 cup Spinach, 3/4 cup coconut water, 1/2 Lemon (peeled), 1/2 Banana, 1 Orange (peeled), Optional: 1 serving protein powder`,
     recipe_text:
     picture: "path/to/image.jpg",
   },
