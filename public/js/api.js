@@ -35,7 +35,64 @@ document.addEventListener("DOMContentLoaded", () => {
         noRecipesMessage.style.display = "none";
         data.forEach((recipe) => {
           // Create the elements
-          // ... your existing code to render recipes ...
+          const recipeDiv = document.createElement("div");
+          const recipeName = document.createElement("h2");
+          const recipeText = document.createElement("p");
+          const cookTime = document.createElement("p");
+          const ingredientsList = document.createElement("ul");
+          const categoryLink = document.createElement("a");
+          const recipeImage = document.createElement("img"); // Image element for the picture
+
+          // Set the content for each element
+          recipeName.textContent = recipe.recipe_name;
+          recipeText.textContent = recipe.recipe_text;
+          cookTime.textContent = "Cook Time: " + recipe.cook_time + " minutes";
+          // Add the "recipe-title" class to the h2 element
+          recipeName.id = "recipe-title";
+
+          // Set the picture
+          // Use the correct image path here
+          recipeImage.src = `/${recipe.picture}`;
+          // Provide an alternative text for the image
+          recipeImage.alt = recipe.recipe_name;
+          // Add the "recipe-photo" class to the image
+          recipeImage.classList.add("recipe-photo");
+
+          // Create a heading for ingredients
+          const ingredientsTitle = document.createElement("h3");
+          ingredientsTitle.textContent = "Ingredients";
+
+          // Create clickable ingredients
+          recipe.ingredients.forEach((ingredient) => {
+            const ingredientItem = document.createElement("li");
+            const ingredientLink = document.createElement("a");
+            ingredientLink.textContent = ingredient.ingredient_name;
+            ingredientLink.href = `/api/ingredients/${encodeURIComponent(
+              ingredient.ingredient_name
+            )}`;
+
+            ingredientItem.appendChild(ingredientLink);
+            ingredientsList.appendChild(ingredientItem);
+          });
+
+          // Set category link
+          categoryLink.textContent =
+            "Category: " + recipe.category.category_name;
+          categoryLink.href = `/api/categories/${encodeURIComponent(
+            recipe.category.category_name
+          )}`;
+
+          // Append the elements to the recipeDiv
+          recipeDiv.appendChild(recipeName);
+          recipeDiv.appendChild(recipeImage); // Append the image to the recipeDiv
+          recipeDiv.appendChild(recipeText);
+          recipeDiv.appendChild(cookTime);
+          recipeDiv.appendChild(ingredientsTitle);
+          recipeDiv.appendChild(ingredientsList);
+          recipeDiv.appendChild(categoryLink);
+
+          // Append the recipeDiv to the recipeContainer
+          recipeContainer.appendChild(recipeDiv);
         });
       }
     } catch (error) {
@@ -54,6 +111,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Compile the Handlebars template
   const recipeListTemplate = Handlebars.compile(recipeListTemplateSource);
+
   console.log("recipeListContainer:", recipeListContainer);
 
   try {
