@@ -86,4 +86,37 @@ router.get("/recipes", (req, res) => {
   res.render("recipes");
 });
 
+// Add route for category
+router.get("/category/:name", async (req, res) => {
+  try {
+    const categoryName = req.params.name;
+
+    // Fetch the recipes that belong to the specified category
+    const recipeData = await Recipe.findAll({
+      where: {
+        // Assuming you have a column named 'category_name' in your Recipe model
+        category_name: categoryName,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render("category", {
+      recipes,
+      category_name: categoryName,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

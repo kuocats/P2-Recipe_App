@@ -74,10 +74,6 @@ main {
   text-align: center;
 }
 
-.container {
-  display: flex;
-}
-
 .container-center {
   width: 100%;
   display: flex;
@@ -154,7 +150,6 @@ footer {
 
 /* Form styles */
 .form {
-  max-width: 500px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -281,4 +276,18 @@ ul li::before {
   content: "\2605";
   color: #ff0000;
   margin-right: 8px;
+}
+.container {
+  width: 75%;
+}
+
+#success-message {
+  color: green;
+  font-weight: bold;
+  font-size: 25px;
+}
+#noRecipesMessage {
+  color: red;
+  font-weight: bold;
+  font-size: 25px;
 }

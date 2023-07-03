@@ -10,11 +10,10 @@ router.post("/", (req, res) => {
     password: req.body.password,
   })
     .then((dbUserData) => {
-      // Set up sessions with a 'loggedIn' variable set to `true`
-      req.session.save(() => {
-        req.session.loggedIn = true;
-        res.status(200).json(dbUserData);
-      });
+      // Set up sessions with a 'logged_in' variable set to `true`
+      req.session.logged_in = true;
+      req.session.user_id = dbUserData.id;
+      res.status(200).json(dbUserData);
     })
     .catch((err) => {
       console.log(err);
@@ -47,13 +46,12 @@ router.post("/login", (req, res) => {
             return;
           }
 
-          // Once the user successfully logs in, set up the sessions variable 'loggedIn'
-          req.session.save(() => {
-            req.session.loggedIn = true;
-            res
-              .status(200)
-              .json({ user: dbUserData, message: "You are now logged in!" });
-          });
+          // Once the user successfully logs in, set up the sessions variable 'logged_in'
+          req.session.logged_in = true;
+          req.session.user_id = dbUserData.id;
+          res
+            .status(200)
+            .json({ user: dbUserData, message: "You are now logged in!" });
         })
         .catch((err) => {
           console.log(err);
@@ -69,7 +67,7 @@ router.post("/login", (req, res) => {
 // Logout
 router.post("/logout", (req, res) => {
   // When the user logs out, destroy the session
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });
