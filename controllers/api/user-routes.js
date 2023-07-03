@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Recipe } = require("../../models");
 
 // CREATE new user
 router.post("/", (req, res) => {
@@ -19,6 +19,46 @@ router.post("/", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+// Fetch user-specific recipes
+router.get("/user", async (req, res) => {
+  try {
+    // Check if the user is authenticated and logged in
+    if (!req.session.logged_in) {
+      res.status(401).json({ message: "You are not logged in!" });
+      return;
+    }
+
+    // Fetch the user's recipes using their user_id from the session
+    const userId = req.session.user_id;
+    const recipes = await Recipe.findAll({
+      where: {
+        user_id: userId,
+      },
+      include: [
+        {
+          model: Category,
+          as: "category", // Include the associated category
+        },
+        {
+          model: Ingredient, // Include the associated ingredients (if needed)
+          through: {
+            attributes: [], // Exclude the junction table attributes
+          },
+        },
+        {
+          model: User, // Include the associated user
+          attributes: { exclude: ["password"] }, // Exclude the password from the response
+        },
+      ],
+    });
+
+    res.status(200).json(recipes);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 // Login
