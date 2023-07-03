@@ -34,7 +34,10 @@ Recipe.init(
     },
     category_id: {
       type: DataTypes.INTEGER,
-      references: { category_id: "id", category_name: "category_name" },
+      references: {
+        model: "category",
+        key: "id",
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,

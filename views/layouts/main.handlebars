@@ -14,10 +14,19 @@
         <a href="/"><h1>
             Recipe Master
           </h1></a>
+        <!-- Display "Hello, user" -->
+        {{#if name}}
+          <div class="row">
+            <div class="col-auto">
+              <h2>Hello, {{name}}!</h2>
+            </div>
+          </div>
+        {{/if}}
         <nav>
           <a href="/">HOME</a>
           <!-- Render login or logout links -->
-          {{#if logged_in}}
+          {{#if logged_in}}<!-- Display "Hello, user" -->
+
             <a href="/profile">PROFILE</a>
             <button id="logout">LOGOUT</button>
           {{else}}

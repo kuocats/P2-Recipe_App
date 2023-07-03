@@ -40,19 +40,45 @@ document
     }
   });
 
-// Function to populate the list of recipes
 const populateRecipesList = async () => {
   try {
-    const response = await fetch("/api/recipes");
+    const response = await fetch("/api/recipes/user"); // Replace "/api/recipes/user" with your backend API endpoint for fetching user-specific recipes
     if (!response.ok) {
       throw new Error("Failed to fetch recipes");
     }
     const recipes = await response.json();
     console.log("Fetched recipes:", recipes);
 
-    // Your code to display the recipes in the UI goes here
+    // Call a function to display the recipes in the UI
+    displayRecipes(recipes);
   } catch (error) {
     console.error("Error populating recipes:", error);
+  }
+};
+const displayRecipes = (recipes) => {
+  const recipeListContainer = document.querySelector(".recipe-list-container");
+  recipeListContainer.innerHTML = ""; // Clear existing content
+
+  if (recipes.length > 0) {
+    recipes.forEach((recipe) => {
+      const recipeCard = document.createElement("div");
+      recipeCard.classList.add("recipe-card");
+
+      // Customize how you want to display each recipe in the card
+      recipeCard.innerHTML = `
+        <h4>${recipe.recipe_name}</h4>
+        <p>Cook Time: ${recipe.cook_time} minutes</p>
+        <p>Category: ${recipe.category_name}</p>
+        <p>Instructions: ${recipe.recipe_text}</p>
+        <p>Ingredients: ${recipe.ingredients.join(", ")}</p>
+        <img src="${recipe.picture}" alt="${recipe.recipe_name}" />
+      `;
+
+      recipeListContainer.appendChild(recipeCard);
+    });
+  } else {
+    // If there are no recipes, display a message
+    recipeListContainer.innerHTML = "<p>You have not added recipes yet.</p>";
   }
 };
 
@@ -89,7 +115,7 @@ const populateCategoriesDropdown = async () => {
     const categories = await response.json();
     console.log("Fetched categories:", categories);
 
-    const categorySelect = document.getElementById("category");
+    const categorySelect = document.getElementById("category_id");
     categorySelect.innerHTML = ""; // Clear existing options
 
     // Add the "Select a category" option
@@ -122,4 +148,5 @@ const populateCategoriesDropdown = async () => {
 // Call the populateCategoriesDropdown function when the page is loaded
 window.addEventListener("load", () => {
   populateCategoriesDropdown();
+  populateRecipesList(); // Fetch and display the user's recipes
 });
