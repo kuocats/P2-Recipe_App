@@ -7,6 +7,10 @@
       favorite recipes! Search by keyword or click on a category to browse
       recipes.
     </p>
+
+    <div id="noRecipesMessage" style="display: none;">No recipes found. Try
+      another keyword.<span style="font-size:50px;">&#128533;</span></div>
+
     <form class="search-bar" id="searchForm">
       <label for="recipeInput">Search Keywords</label>
       <input type="text" id="recipeInput" placeholder="Enter a recipe name" />
@@ -15,21 +19,21 @@
   </div>
   <div id="recipeContainer">
     OR click here to see all recipes
-    <a href="/api/recipes">See All Recipes</a>
+    <a href="/recipes">See All Recipes</a>
   </div>
   <section class="categories">
     <h3>Categories:</h3>
     <div class="grid-item">
       <img src="/images/breakfast.jpg" alt="breakfast img" />
-      <a href="/api/categories/breakfast">Breakfast</a>
+      <a href="api/categories/breakfast">Breakfast</a>
     </div>
     <div class="grid-item">
       <img src="/images/brunch.jpg" alt="brunch img" />
-      <a href="/api/category/brunch">Brunch</a>
+      <a href="/api/categories/brunch">Brunch</a>
     </div>
     <div class="grid-item">
       <img src="/images/dinner.jpg" alt="dinner img" />
-      <a href="/api/category/lunch">Lunch</a>
+      <a href="/api/categories/lunch">Lunch</a>
     </div>
     <div class="grid-item">
       <img src="/images/salad.jpg" alt="salad img" />

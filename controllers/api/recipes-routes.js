@@ -26,6 +26,7 @@ router.get("/", (req, res) => {
     res.json(recipeData);
   });
 });
+
 // Get one Recipe
 router.get("/:name", (req, res) => {
   const searchWord = req.params.name; // Use req.params.name instead of req.query.name
@@ -57,8 +58,9 @@ router.get("/:name", (req, res) => {
 });
 
 // Create new Recipe
-
-router.post("/", upload.single("photo"), (req, res) => {
+router.post("/", upload.single("picture"), (req, res) => {
+  console.log("Received request:", req.body); // Check if you are getting the request body
+  console.log("Received file:", req.file); // Check if you are getting the file
   /* create post json example, do not delete.
     {
       picture: "uploads/image.jpg"
@@ -66,25 +68,22 @@ router.post("/", upload.single("photo"), (req, res) => {
       recipe_text: "Recipe instructions...",
       cook_time: 3,
       category_id: 1,
+      user_id: 23,
       ingredientNames: ["Chicken", "Butter", "Salt", "Pepper"]
     }
   */
-
-  const {
-    picture,
-    recipe_name,
-    recipe_text,
-    cook_time,
-    category_id,
-    ingredientNames,
-  } = req.body;
+  const picture = req.file ? req.file.filename : null;
+  const { recipe_name, recipe_text, cook_time, category_id, ingredientNames } =
+    req.body;
   const slug = slugify(req.body.recipe_name, { lower: true });
+
   Recipe.create({
-    picture: req.file ? req.file.filename : picture,
+    picture: picture,
     recipe_name,
     recipe_text,
     cook_time,
     category_id,
+    date_created: req.body.date_created,
     user_id: req.session.user_id, // Set the user_id to the logged-in user's ID
   })
     .then((recipe) => {

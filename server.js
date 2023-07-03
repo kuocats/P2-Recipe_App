@@ -5,10 +5,14 @@ const path = require("path");
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const multer = require("multer");
+const helpers = require("./utils/helpers");
+
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+// Set up Handlebars.js engine with custom helpers
+const hbs = exphbs.create({ helpers });
 
 // Set up Handlebars as the view engine
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -18,8 +22,7 @@ app.set("views", __dirname + "/views");
 // Set up multer for file upload
 // Destination folder for uploaded files
 const upload = multer({ dest: "uploads/" });
-
-app.post("/api/recipes", upload.single("recipe_image"), (req, res) => {
+app.post("/api/recipes", upload.single("picture"), (req, res) => {
   // Access the uploaded file using req.file
   if (!req.file) {
     return res.status(400).json({ error: "No file uploaded." });
