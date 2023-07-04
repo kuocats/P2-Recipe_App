@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { User, Recipe } = require("../../models");
+const { User, Recipe, Category } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // CREATE new user
 router.post("/", (req, res) => {
@@ -21,46 +22,57 @@ router.post("/", (req, res) => {
     });
 });
 
-// Fetch user-specific recipes
-router.get("/user", async (req, res) => {
+/// Your route to fetch user-specific recipes
+router.get("/api/recipes/user", withAuth, async (req, res) => {
   try {
-    // Check if the user is authenticated and logged in
-    if (!req.session.logged_in) {
-      res.status(401).json({ message: "You are not logged in!" });
-      return;
-    }
-
-    // Fetch the user's recipes using their user_id from the session
-    const userId = req.session.user_id;
-    const recipes = await Recipe.findAll({
-      where: {
-        user_id: userId,
-      },
+    // Find the logged-in user based on the session ID
+    const user = await User.findByPk(req.session.user_id, {
       include: [
         {
-          model: Category,
-          as: "category", // Include the associated category
-        },
-        {
-          model: Ingredient, // Include the associated ingredients (if needed)
-          through: {
-            attributes: [], // Exclude the junction table attributes
-          },
-        },
-        {
-          model: User, // Include the associated user
-          attributes: { exclude: ["password"] }, // Exclude the password from the response
+          model: Recipe,
+          attributes: [
+            "id",
+            "recipe_name",
+            "cook_time",
+            "recipe_text",
+            "picture",
+          ],
+          include: [
+            {
+              model: Category, // Include the Category model to get category details
+              attributes: ["category_name"], // Include only the 'category_name' property from Category
+            },
+          ],
         },
       ],
     });
 
-    res.status(200).json(recipes);
+    // If the user doesn't exist or has no recipes, send an empty array as the response
+    if (!user || !user.Recipes) {
+      return res.status(200).json([]);
+    }
+
+    // Extract the user-specific recipes with category details
+    const userRecipes = user.Recipes.map((recipe) => {
+      return {
+        id: recipe.id,
+        recipe_name: recipe.recipe_name,
+        cook_time: recipe.cook_time,
+        recipe_text: recipe.recipe_text,
+        picture: recipe.picture,
+        category_name: recipe.Category
+          ? recipe.Category.category_name
+          : "Uncategorized", // Get the category name if available, otherwise set it to "Uncategorized"
+      };
+    });
+
+    // Send the user-specific recipes as the response
+    res.status(200).json(userRecipes);
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    console.error("Error fetching user recipes:", err);
+    res.status(500).json({ message: "Failed to fetch user recipes" });
   }
 });
-
 // Login
 router.post("/login", (req, res) => {
   User.findOne({
