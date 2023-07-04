@@ -40,46 +40,55 @@ document
     }
   });
 
-const populateRecipesList = async () => {
+const populateUserRecipes = async () => {
   try {
     const response = await fetch("/api/recipes/user"); // Replace "/api/recipes/user" with your backend API endpoint for fetching user-specific recipes
     if (!response.ok) {
-      throw new Error("Failed to fetch recipes");
+      throw new Error("Failed to fetch user recipes");
     }
-    const recipes = await response.json();
-    console.log("Fetched recipes:", recipes);
+    const userRecipes = await response.json();
+    console.log("Fetched user recipes:", userRecipes);
 
-    // Call a function to display the recipes in the UI
-    displayRecipes(recipes);
+    // Call a function to display the user's recipes in the UI
+    displayUserRecipes(userRecipes);
   } catch (error) {
-    console.error("Error populating recipes:", error);
+    console.error("Error populating user recipes:", error);
   }
 };
-const displayRecipes = (recipes) => {
+
+const displayUserRecipes = (recipes) => {
   const recipeListContainer = document.querySelector(".recipe-list-container");
-  recipeListContainer.innerHTML = ""; // Clear existing content
 
-  if (recipes.length > 0) {
-    recipes.forEach((recipe) => {
-      const recipeCard = document.createElement("div");
-      recipeCard.classList.add("recipe-card");
+  // Clear any existing content in the recipeListContainer
+  recipeListContainer.innerHTML = "";
 
-      // Customize how you want to display each recipe in the card
-      recipeCard.innerHTML = `
+  recipes.forEach((recipe) => {
+    // Check if recipe.category is defined before accessing its properties
+    const categoryName = recipe.category
+      ? recipe.category.category_name
+      : "N/A";
+
+    // Extract the ingredient names from the array of ingredient objects
+    const ingredientsList = recipe.ingredients
+      ? recipe.ingredients
+          .map((ingredient) => ingredient.ingredient_name)
+          .join(", ")
+      : "N/A";
+
+    const recipeCardHtml = `
+      <div class="recipe-card">
         <h4>${recipe.recipe_name}</h4>
         <p>Cook Time: ${recipe.cook_time} minutes</p>
-        <p>Category: ${recipe.category_name}</p>
+        <p>Category: ${categoryName}</p>
         <p>Instructions: ${recipe.recipe_text}</p>
-        <p>Ingredients: ${recipe.ingredients.join(", ")}</p>
+        <p>Ingredients: ${ingredientsList}</p>
         <img src="${recipe.picture}" alt="${recipe.recipe_name}" />
-      `;
+      </div>
+    `;
 
-      recipeListContainer.appendChild(recipeCard);
-    });
-  } else {
-    // If there are no recipes, display a message
-    recipeListContainer.innerHTML = "<p>You have not added recipes yet.</p>";
-  }
+    // Append the recipe card to the recipeListContainer
+    recipeListContainer.innerHTML += recipeCardHtml;
+  });
 };
 
 // Function to add a new ingredient input field
@@ -148,5 +157,5 @@ const populateCategoriesDropdown = async () => {
 // Call the populateCategoriesDropdown function when the page is loaded
 window.addEventListener("load", () => {
   populateCategoriesDropdown();
-  populateRecipesList(); // Fetch and display the user's recipes
+  populateUserRecipes(); // Fetch and display the user's recipes
 });

@@ -118,4 +118,28 @@ router.get("/category/:name", async (req, res) => {
   }
 });
 
+// Route for fetching user-specific recipes
+router.get("/api/recipes/user", withAuth, async (req, res) => {
+  try {
+    // Find the logged-in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      include: [{ model: Recipe }],
+    });
+
+    if (!userData) {
+      // If the user is not found, return an empty array or an appropriate error message
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const user = userData.get({ plain: true });
+    const recipes = user.recipes; // Assuming that the association is set up correctly
+
+    // Send the user-specific recipes in the response
+    res.json(recipes);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
