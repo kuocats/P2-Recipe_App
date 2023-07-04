@@ -1,21 +1,25 @@
-/*body??? {
+body {
+  display: flexbox;
+  background-color: #ff3131;
+  flex-flow: column wrap;
+
+}
+
+header {
   display: flexbox;
   border-bottom: solid black 4px;
   width: 100%;
   flex-flow: row wrap;
   width: 90%;
   align-self: center;
-  justify-self: flex-start;
+  justify-self:flex-start;
   max-height: 200px;
-}*/
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+  
 }
 
-header,
-img {
+header, img {
   display: flexbox;
+  
 }
 
 h1 {
@@ -28,31 +32,14 @@ nav {
   display: flex;
   flex-flow: column wrap;
   margin-right: 20px;
-  height: 150px;
+  height:150px;
   justify-content: space-evenly;
+
 }
 
 a {
-  color: black;
-}
-a:hover {
-  text-decoration: underline;
-  color: black;
-}
-
-nav a,
-#logout {
-  text-decoration: none;
-  padding: 10px 15px;
-  background-color: #f2f2f2;
-  border: 1px solid #555;
-}
-
-nav a:hover,
-#logout:hover {
-  background-color: #555;
+  display: flex;
   color: white;
-  cursor: pointer;
 }
 
 main {
@@ -72,6 +59,10 @@ main {
   max-width: 50%;
   display: flex;
   text-align: center;
+}
+
+.container {
+  display: flex;
 }
 
 .container-center {
