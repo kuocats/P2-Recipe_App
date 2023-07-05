@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Recipe, Category } = require("../../models");
+const { User, Recipe, Category, Ingredient } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // CREATE new user
@@ -22,55 +22,36 @@ router.post("/", (req, res) => {
     });
 });
 
-/// Your route to fetch user-specific recipes
-router.get("/api/recipes/user", withAuth, async (req, res) => {
+/// Route to fetch user-specific recipes
+router.get("/recipes", withAuth, async (req, res) => {
   try {
     // Find the logged-in user based on the session ID
-    const user = await User.findByPk(req.session.user_id, {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
       include: [
         {
           model: Recipe,
-          attributes: [
-            "id",
-            "recipe_name",
-            "cook_time",
-            "recipe_text",
-            "picture",
-          ],
           include: [
-            {
-              model: Category, // Include the Category model to get category details
-              attributes: ["category_name"], // Include only the 'category_name' property from Category
-            },
+            { model: Category, as: "category" },
+            { model: Ingredient, as: "ingredients" },
           ],
         },
       ],
     });
 
-    // If the user doesn't exist or has no recipes, send an empty array as the response
-    if (!user || !user.Recipes) {
-      return res.status(200).json([]);
+    if (!userData) {
+      // If the user is not found, return an empty array or an appropriate error message
+      return res.status(404).json({ error: "User not found" });
     }
 
-    // Extract the user-specific recipes with category details
-    const userRecipes = user.Recipes.map((recipe) => {
-      return {
-        id: recipe.id,
-        recipe_name: recipe.recipe_name,
-        cook_time: recipe.cook_time,
-        recipe_text: recipe.recipe_text,
-        picture: recipe.picture,
-        category_name: recipe.Category
-          ? recipe.Category.category_name
-          : "Uncategorized", // Get the category name if available, otherwise set it to "Uncategorized"
-      };
-    });
+    const user = userData.get({ plain: true });
+    const recipes = user.recipes;
 
-    // Send the user-specific recipes as the response
-    res.status(200).json(userRecipes);
+    // Send the user-specific recipes in the response
+    res.json(recipes);
   } catch (err) {
     console.error("Error fetching user recipes:", err);
-    res.status(500).json({ message: "Failed to fetch user recipes" });
+    res.status(500).json(err);
   }
 });
 // Login

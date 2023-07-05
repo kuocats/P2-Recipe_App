@@ -21,6 +21,7 @@ router.get("/", async (req, res) => {
     res.render("homepage", {
       recipes,
       logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -81,21 +82,10 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/recipes", (req, res) => {
-  res.render("recipes");
-});
-
-// Add route for category
-router.get("/category/:name", async (req, res) => {
+router.get("/recipes", async (req, res) => {
   try {
-    const categoryName = req.params.name;
-
-    // Fetch the recipes that belong to the specified category
+    // Get all recipes and JOIN with user data
     const recipeData = await Recipe.findAll({
-      where: {
-        // Assuming you have a column named 'category_name' in your Recipe model
-        category_name: categoryName,
-      },
       include: [
         {
           model: User,
@@ -107,36 +97,42 @@ router.get("/category/:name", async (req, res) => {
     // Serialize data so the template can read it
     const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    res.render("category", {
+    // Pass serialized data, session flag, and user ID into template
+    res.render("recipes", {
       recipes,
-      category_name: categoryName,
       logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// Route for fetching user-specific recipes
-router.get("/api/recipes/user", withAuth, async (req, res) => {
+// Add route for category
+router.get("/category/:name", async (req, res) => {
   try {
-    // Find the logged-in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
-      include: [{ model: Recipe }],
+    const categoryName = req.params.name;
+
+    // Fetch the recipes that belong to the specified category
+    const recipeData = await Recipe.findAll({
+      where: {
+        category_name: categoryName,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+      ],
     });
 
-    if (!userData) {
-      // If the user is not found, return an empty array or an appropriate error message
-      return res.status(404).json({ error: "User not found" });
-    }
+    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
 
-    const user = userData.get({ plain: true });
-    const recipes = user.recipes; // Assuming that the association is set up correctly
-
-    // Send the user-specific recipes in the response
-    res.json(recipes);
+    res.render("category", {
+      recipes,
+      category_name: categoryName,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }

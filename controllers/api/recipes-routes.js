@@ -6,6 +6,7 @@ const {
   RecipeIngredient,
   User,
 } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 const multer = require("multer");
 const slugify = require("slugify");
@@ -169,17 +170,39 @@ router.put("/:name", upload.single("photo"), (req, res) => {
 });
 
 // Delete Recipe
-router.delete("/:id", (req, res) => {
-  Recipe.destroy({
-    where: {
-      id: req.params.id,
-      user_id: req.session.user_id, // Make sure to include user_id in the WHERE condition
-    },
-  })
-    .then(() => {
-      res.json({ message: "Recipe deleted" });
-    })
-    .catch((err) => res.json(err));
+router.delete("recipes/:id", withAuth, async (req, res) => {
+  try {
+    const recipeId = req.params.id;
+    const userId = req.session.user_id;
+
+    console.log("Recipe ID:", recipeId);
+    console.log("User ID:", userId);
+
+    // Find the recipe to delete
+    const recipe = await Recipe.findOne({
+      where: {
+        id: recipeId,
+        user_id: userId,
+      },
+    });
+
+    console.log("Recipe:", recipe);
+
+    if (!recipe) {
+      console.log("Recipe not found");
+      return res.status(404).json({ error: "Recipe not found" });
+    }
+
+    // Delete the recipe
+    await recipe.destroy();
+
+    console.log("Recipe deleted");
+
+    res.status(200).json({ message: "Recipe deleted" });
+  } catch (err) {
+    console.error("Error deleting recipe:", err);
+    res.status(500).json({ error: "Failed to delete recipe" });
+  }
 });
 
 module.exports = router;
