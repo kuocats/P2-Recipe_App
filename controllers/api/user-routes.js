@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Recipe, Category } = require("../../models");
+const { User, Recipe, Category, Ingredient } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // CREATE new user
@@ -23,7 +23,37 @@ router.post("/", (req, res) => {
 });
 
 /// Your route to fetch user-specific recipes
-router.get("/api/recipes/user", withAuth, async (req, res) => {
+router.get("/recipes", withAuth, async (req, res) => {
+  try {
+    // Find the logged-in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      include: [
+        {
+          model: Recipe,
+          include: [
+            { model: Category, as: "category" },
+            { model: Ingredient, as: "ingredients" },
+          ],
+        },
+      ],
+    });
+
+    if (!userData) {
+      // If the user is not found, return an empty array or an appropriate error message
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const user = userData.get({ plain: true });
+    const recipes = user.recipes; // Assuming that the association is set up correctly
+
+    // Send the user-specific recipes in the response
+    res.json(recipes);
+  } catch (err) {
+    console.error("Error fetching user recipes:", err);
+    res.status(500).json(err);
+  }
+  /*
   try {
     // Find the logged-in user based on the session ID
     const user = await User.findByPk(req.session.user_id, {
@@ -72,6 +102,7 @@ router.get("/api/recipes/user", withAuth, async (req, res) => {
     console.error("Error fetching user recipes:", err);
     res.status(500).json({ message: "Failed to fetch user recipes" });
   }
+  */
 });
 // Login
 router.post("/login", (req, res) => {

@@ -1,10 +1,9 @@
-// Define formData outside the event listener function
 let formData;
 
 document
   .getElementById("create-recipe-form")
   .addEventListener("submit", async (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior
+    event.preventDefault();
 
     // Get the form data
     formData = new FormData(event.target);
@@ -34,7 +33,7 @@ document
       event.target.reset();
 
       // Update the recipes list
-      populateRecipesList();
+      populateUserRecipes(); // Fetch and display the updated list of user-specific recipes
     } catch (error) {
       console.error("Error:", error);
     }
@@ -42,20 +41,19 @@ document
 
 const populateUserRecipes = async () => {
   try {
-    const response = await fetch("/api/recipes/user"); // Replace "/api/recipes/user" with your backend API endpoint for fetching user-specific recipes
+    const response = await fetch("/api/users/recipes");
     if (!response.ok) {
       throw new Error("Failed to fetch user recipes");
     }
     const userRecipes = await response.json();
     console.log("Fetched user recipes:", userRecipes);
 
-    // Call a function to display the user's recipes in the UI
+    // Function to display the user's recipes
     displayUserRecipes(userRecipes);
   } catch (error) {
     console.error("Error populating user recipes:", error);
   }
 };
-
 const displayUserRecipes = (recipes) => {
   const recipeListContainer = document.querySelector(".recipe-list-container");
 
@@ -75,29 +73,37 @@ const displayUserRecipes = (recipes) => {
           .join(", ")
       : "N/A";
 
-    const recipeCardHtml = `
-      <div class="recipe-card">
-        <h4>${recipe.recipe_name}</h4>
-        <p>Cook Time: ${recipe.cook_time} minutes</p>
-        <p>Category: ${categoryName}</p>
-        <p>Instructions: ${recipe.recipe_text}</p>
-        <p>Ingredients: ${ingredientsList}</p>
-        <img src="${recipe.picture}" alt="${recipe.recipe_name}" />
-      </div>
+    const recipeCard = document.createElement("div");
+    recipeCard.classList.add("recipe-card");
+    recipeCard.setAttribute("data-recipe-id", recipe.id);
+
+    recipeCard.innerHTML = `
+      <h4>${recipe.recipe_name}</h4>
+      <p>Cook Time: ${recipe.cook_time} minutes</p>
+      <p>Category: ${categoryName}</p>
+      <p>Instructions: ${recipe.recipe_text}</p>
+      <p>Ingredients: ${ingredientsList}</p>
+      <img src="uploads/${recipe.picture}" alt="${recipe.recipe_name}" class="recipe-photo"/>
     `;
 
-    // Append the recipe card to the recipeListContainer
-    recipeListContainer.innerHTML += recipeCardHtml;
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-recipe-btn");
+    deleteButton.addEventListener("click", () => {
+      deleteRecipe(recipe.id);
+    });
+
+    recipeCard.appendChild(deleteButton);
+    recipeListContainer.appendChild(recipeCard);
   });
 };
-
 // Function to add a new ingredient input field
 const addIngredientField = () => {
   const ingredientsContainer = document.getElementById("ingredients-container");
   const ingredientRow = document.createElement("div");
   ingredientRow.classList.add("ingredient-row");
   ingredientRow.innerHTML = `
-    <input type="text" name="ingredients[]" required />
+    <input type="text" name="ingredientNames[]" required />
     <button type="button" class="remove-ingredient-btn">Remove</button>
   `;
   ingredientsContainer.appendChild(ingredientRow);
@@ -125,7 +131,7 @@ const populateCategoriesDropdown = async () => {
     console.log("Fetched categories:", categories);
 
     const categorySelect = document.getElementById("category_id");
-    categorySelect.innerHTML = ""; // Clear existing options
+    categorySelect.innerHTML = ""; // Clear any existing options
 
     // Add the "Select a category" option
     const defaultOption = document.createElement("option");
@@ -154,8 +160,39 @@ const populateCategoriesDropdown = async () => {
   }
 };
 
+const deleteRecipe = async (recipeId) => {
+  try {
+    const response = await fetch(`/api/recipes/${recipeId}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to delete recipe");
+    }
+
+    // Update the recipes list after successful deletion
+    populateUserRecipes();
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
 // Call the populateCategoriesDropdown function when the page is loaded
 window.addEventListener("load", () => {
   populateCategoriesDropdown();
   populateUserRecipes(); // Fetch and display the user's recipes
+});
+document
+  .getElementById("add-ingredient-btn")
+  .addEventListener("click", addIngredientField);
+// Event listener for the delete button
+// Event listener for the remove button
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("remove-ingredient-btn")) {
+    const ingredientRow = event.target.parentElement;
+    const ingredientsContainer = document.getElementById(
+      "ingredients-container"
+    );
+    ingredientsContainer.removeChild(ingredientRow);
+  }
 });
