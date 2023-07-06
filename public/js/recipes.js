@@ -41,7 +41,7 @@ const createRecipeCard = (recipe) => {
   // Create an image element for the recipe picture
   const recipeImage = document.createElement("img");
   recipeImage.src = `uploads/${recipe.picture}`; // Assuming the recipe object has a 'picture' property with the image URL
-  recipeImage.alt = recipe.name;
+  recipeImage.alt = recipe.recipe_name;
   recipeImage.classList.add("recipe-photo");
   recipeCard.appendChild(recipeImage);
 
