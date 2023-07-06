@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // Set the picture
           // Use the correct image path here
-          recipeImage.src = `/${recipe.picture}`;
+          recipeImage.src = `uploads/${recipe.picture}`;
           // Provide an alternative text for the image
           recipeImage.alt = recipe.recipe_name;
           // Add the "recipe-photo" class to the image
