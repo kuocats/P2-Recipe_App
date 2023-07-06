@@ -2,9 +2,21 @@
 
 ## Description
 
-Deployed application link on GitHub
+Recipe Masters is a full-stack application, recipe discovery and platform for food enthusiasts. Users can explore and share recipes from all types of cuisines.
+The search bar at the top of the page allows you to explore a collection of recipes based on ingredients, categories, and dietary preferences.
+Users can join in on the collection by simply signing up or logging in to post and showcase their recipes.
+Technologies Used:
+Multer which is a module for image uploading.  
+Node.js, Express.js, Handlebars.js
+MySQL, Sequelize ORM
+Authentication
+Heroku web server
 
-https://github.com/
+Deployed application link on GitHub
+https://github.com/kuocats/Recipe_Masters
+
+Deployed application link on Heroku
+https://recipe-masters-july-c08367818636.herokuapp.com/
 
 ## Table of Contents
 
@@ -25,37 +37,13 @@ No special requirements
 
 ## Usage
 
-Open your command-line interface.
-
-Run `npm i` to install the required dependencies.
-
-Update the configuration in the `.env` file with your MySQL settings.
-
-Set up a MySQL database by running `mysql -u root -p` and entering your MySQL password.
-
-In the MySQL command line interface, run `source db/schema.sql` to import the schema and create the necessary tables.
-
-Run `node seeds/index.js` to populate the database with sample data.
-
-Start the server by running `npm start`.
-
-Open your browser and go to http://localhost:3001/ to access the application.
+This website allows users to discover and post food recipes. Users will be able to search for recipes based on ingredients and categories. Users can also sign up, log in, and post their favorite food recipe to their profile.
 
 ## Mock-Up
 
 Screenshots located in `./assets/` folder.
 
 The following screenshot shows the application's GET routes to return all recipes:
-
-![Get recipes](./assets/get-recipes.png)
-
-The following screenshot shows the application's GET routes to return all categories:
-
-![Get categories](./assets/get-categories.png)
-
-The following screenshot shows the application's GET routes to return ingredients:
-
-![Get ingredients](./assets/get-ingredients.png)
 
 ## Credits
 
