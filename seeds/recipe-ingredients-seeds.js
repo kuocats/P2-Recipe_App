@@ -115,10 +115,6 @@ const recipeIngredientData = [
   },
   {
     recipe_id: 13,
-    ingredient_id: 9,
-  },
-  {
-    recipe_id: 13,
     ingredient_id: 6,
   },
   {
@@ -187,10 +183,6 @@ const recipeIngredientData = [
   },
   {
     recipe_id: 24,
-    ingredient_id: 5,
-  },
-  {
-    recipe_id: 24,
     ingredient_id: 10,
   },
   {
@@ -225,7 +217,6 @@ const recipeIngredientData = [
     recipe_id: 30,
     ingredient_id: 7,
   },
-
 ];
 
 const seedRecipeIngredients = () =>

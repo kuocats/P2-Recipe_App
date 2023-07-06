@@ -1,79 +1,78 @@
-document.addEventListener("DOMContentLoaded", async () => {
-  const recipeContainer = document.getElementById("recipeContainer");
+// Function to create a recipe card
+const createRecipeCard = (recipe) => {
+  const recipeCard = document.createElement("div");
+  recipeCard.classList.add("recipe-card");
 
-  const apiUrl = "http://localhost:3001/api/recipes";
+  const recipeName = document.createElement("h2");
+  recipeName.textContent = recipe.recipe_name;
+  recipeCard.appendChild(recipeName);
 
+  const cookTime = document.createElement("p");
+  cookTime.textContent = "Cooking Time: " + recipe.cook_time + " minutes";
+  recipeCard.appendChild(cookTime);
+
+  const ingredientsTitle = document.createElement("h3");
+  ingredientsTitle.textContent = "Ingredients";
+  recipeCard.appendChild(ingredientsTitle);
+
+  const ingredientsList = document.createElement("ul");
+  recipe.ingredients.forEach((ingredient) => {
+    const ingredientItem = document.createElement("li");
+    const ingredientLink = document.createElement("a");
+    ingredientLink.textContent = ingredient.ingredient_name;
+    ingredientLink.href = `/recipes?ingredient=${encodeURIComponent(
+      ingredient.ingredient_name
+    )}`;
+    ingredientItem.appendChild(ingredientLink);
+    ingredientsList.appendChild(ingredientItem);
+  });
+  recipeCard.appendChild(ingredientsList);
+
+  const category = document.createElement("p");
+  const categoryLink = document.createElement("a");
+  category.textContent = "Category: ";
+  categoryLink.textContent = recipe.category.category_name;
+  categoryLink.href = `/recipes?category=${encodeURIComponent(
+    recipe.category.category_name
+  )}`;
+  category.appendChild(categoryLink);
+  recipeCard.appendChild(category);
+
+  // Create an image element for the recipe picture
+  const recipeImage = document.createElement("img");
+  recipeImage.src = `uploads/${recipe.picture}`; // Assuming the recipe object has a 'picture' property with the image URL
+  recipeImage.alt = recipe.name;
+  recipeImage.classList.add("recipe-photo");
+  recipeCard.appendChild(recipeImage);
+
+  // Recipe text
+  const recipeText = document.createElement("p");
+  recipeText.textContent = recipe.recipe_text;
+  recipeCard.appendChild(recipeText);
+
+  return recipeCard;
+};
+
+// Function to populate the list of recipes
+const populateRecipesList = async () => {
   try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-
-    // Clear the recipeContainer before adding new recipes
-    recipeContainer.innerHTML = "";
-
-    data.forEach((recipe) => {
-      // Create the elements
-      const recipeDiv = document.createElement("div");
-      const recipeName = document.createElement("h2");
-      const recipeText = document.createElement("p");
-      const cookTime = document.createElement("p");
-      const ingredientsList = document.createElement("ul");
-      const categoryLink = document.createElement("a");
-      const recipeImage = document.createElement("img"); // Image element for the picture
-
-      // Set the content for each element
-      recipeName.textContent = recipe.recipe_name;
-      recipeText.textContent = recipe.recipe_text;
-      cookTime.textContent = "Cook Time: " + recipe.cook_time + " minutes";
-      // Add the "recipe-title" class to the h2 element
-      recipeName.id = "recipe-title";
-
-      // Set the picture
-      recipeImage.src = `http://localhost:3001/${recipe.picture}`; // Use the correct image path here
-      recipeImage.alt = recipe.recipe_name; // Provide an alternative text for the image
-      recipeImage.classList.add("recipe-photo"); // Add the "recipe-photo" class to the image
-
-      // Create a heading for ingredients
-      const ingredientsTitle = document.createElement("h3");
-      ingredientsTitle.textContent = "Ingredients";
-      // Create clickable ingredients
-      recipe.ingredients.forEach((ingredient) => {
-        const ingredientItem = document.createElement("li");
-        const ingredientLink = document.createElement("a");
-        ingredientLink.textContent = ingredient.ingredient_name;
-        ingredientLink.href = `http://localhost:3001/api/recipes?ingredient=${encodeURIComponent(
-          ingredient
-        )}`;
-
-        ingredientItem.appendChild(ingredientLink);
-        ingredientsList.appendChild(ingredientItem);
-      });
-
-      // Set category link
-      categoryLink.textContent = "Category: " + recipe.category.category_name;
-      categoryLink.href = `http://localhost:3001/api/recipes?category=${encodeURIComponent(
-        recipe.category
-      )}`;
-
-      // Append the elements to the recipeDiv
-      recipeDiv.appendChild(recipeName);
-      recipeDiv.appendChild(recipeImage);
-      recipeDiv.appendChild(recipeText);
-      recipeDiv.appendChild(cookTime);
-      recipeDiv.appendChild(ingredientsTitle);
-      recipeDiv.appendChild(ingredientsList);
-
-      recipeDiv.appendChild(categoryLink);
-
-      // Append the recipeDiv to the recipeContainer
-      recipeContainer.appendChild(recipeDiv);
+    const response = await fetch("/api/recipes");
+    if (!response.ok) {
+      throw new Error("Failed to fetch recipes");
+    }
+    const recipes = await response.json();
+    const recipeList = document.querySelector(".recipe-list");
+    recipeList.innerHTML = ""; // Clear existing content
+    recipes.forEach((recipe) => {
+      const recipeCard = createRecipeCard(recipe);
+      recipeList.appendChild(recipeCard);
     });
-
-    // Add slide-in animation
-    recipeContainer.classList.add("slide-in-animation");
-    setTimeout(() => {
-      recipeContainer.classList.remove("slide-in-animation");
-    }, 500);
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error populating recipes:", error);
   }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Populate the list of recipes when the page loads
+  populateRecipesList();
 });

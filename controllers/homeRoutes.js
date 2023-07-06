@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { Recipe, User } = require("../models");
 const withAuth = require("../utils/auth");
-const { route } = require("./homeRoutes");
 
 router.get("/", async (req, res) => {
   try {
@@ -22,6 +21,7 @@ router.get("/", async (req, res) => {
     res.render("homepage", {
       recipes,
       logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -82,8 +82,63 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/recipes", (req, res) => {
-  res.render("recipes");
+router.get("/recipes", async (req, res) => {
+  try {
+    // Get all recipes and JOIN with user data
+    const recipeData = await Recipe.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+
+    // Pass serialized data, session flag, and user ID into template
+    res.render("recipes", {
+      recipes,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Add route for category
+router.get("/category/:name", async (req, res) => {
+  try {
+    const categoryName = req.params.name;
+
+    // Fetch the recipes that belong to the specified category
+    const recipeData = await Recipe.findAll({
+      where: {
+        // Assuming you have a column named 'category_name' in your Recipe model
+        category_name: categoryName,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render("category", {
+      recipes,
+      category_name: categoryName,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;

@@ -1,5 +1,4 @@
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,11 +14,20 @@
         <a href="/"><h1>
             Recipe Master
           </h1></a>
+        <!-- Display "Hello, user" -->
+        {{#if name}}
+          <div class="row">
+            <div class="col-auto">
+              <h2>Hello, {{name}}!</h2>
+            </div>
+          </div>
+        {{/if}}
         <nav>
           <a href="/">HOME</a>
           <!-- Render login or logout links -->
-          {{#if logged_in}}
-            <a href="/profile">PROFILE</a>
+          {{#if logged_in}}<!-- Display "Hello, user" -->
+
+            <a href="/profile">MY RECIPES</a>
             <button id="logout">LOGOUT</button>
           {{else}}
             <a href="login">LOGIN</a>
@@ -41,6 +49,7 @@
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
       <script src="/js/logout.js"></script>
+
     {{/if}}
   </body>
 
