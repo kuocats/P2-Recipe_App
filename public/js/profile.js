@@ -33,7 +33,7 @@ document
       event.target.reset();
 
       // Update the recipes list
-      populateUserRecipes(); // Fetch and display the updated list of user-specific recipes
+      populateUserRecipes();
     } catch (error) {
       console.error("Error:", error);
     }
@@ -131,8 +131,7 @@ const populateCategoriesDropdown = async () => {
     console.log("Fetched categories:", categories);
 
     const categorySelect = document.getElementById("category_id");
-    categorySelect.innerHTML = ""; // Clear any existing options
-
+    categorySelect.innerHTML = "";
     // Add the "Select a category" option
     const defaultOption = document.createElement("option");
     defaultOption.value = ""; // Set an empty value for this option

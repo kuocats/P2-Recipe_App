@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const apiUrl = window.location.href; // Get the current URL
+  const apiUrl = window.location.href;
   const recipeContainer = document.getElementById("recipeContainer");
 
   try {
@@ -10,32 +10,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     recipeContainer.innerHTML = "";
 
     data.forEach((recipe) => {
-      // Create the elements (same as in your previous code)
+      // Create the elements
       const recipeDiv = document.createElement("div");
       const recipeName = document.createElement("h2");
       const recipeText = document.createElement("p");
       const cookTime = document.createElement("p");
       const ingredientsList = document.createElement("ul");
       const categoryLink = document.createElement("a");
-      const recipeImage = document.createElement("img"); // Image element for the picture
+      const recipeImage = document.createElement("img");
 
-      // Set the content for each element (same as in your previous code)
+      // Set the content for each element
       recipeName.textContent = recipe.recipe_name;
       recipeText.textContent = recipe.recipe_text;
       cookTime.textContent = "Cook Time: " + recipe.cook_time + " minutes";
       // Add the "recipe-title" class to the h2 element
       recipeName.id = "recipe-title";
 
-      // Set the picture (same as in your previous code)
+      // Set the picture
       recipeImage.src = `/${recipe.picture}`;
       recipeImage.alt = recipe.recipe_name;
       recipeImage.classList.add("recipe-photo");
 
-      // Create a heading for ingredients (same as in your previous code)
+      // Create a heading for ingredients
       const ingredientsTitle = document.createElement("h3");
       ingredientsTitle.textContent = "Ingredients";
 
-      // Create clickable ingredients (same as in your previous code)
+      // Create clickable ingredients
       recipe.ingredients.forEach((ingredient) => {
         const ingredientItem = document.createElement("li");
         const ingredientLink = document.createElement("a");
@@ -48,13 +48,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         ingredientsList.appendChild(ingredientItem);
       });
 
-      // Set category link (same as in your previous code)
+      // Set category link
       categoryLink.textContent = "Category: " + recipe.category.category_name;
       categoryLink.href = `/api/categories/${encodeURIComponent(
         recipe.category.category_name
       )}`;
 
-      // Append the elements to the recipeDiv (same as in your previous code)
+      // Append the elements to the recipeDiv
       recipeDiv.appendChild(recipeName);
       recipeDiv.appendChild(recipeImage);
       recipeDiv.appendChild(recipeText);
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       recipeDiv.appendChild(ingredientsList);
       recipeDiv.appendChild(categoryLink);
 
-      // Append the recipeDiv to the recipeContainer (same as in your previous code)
+      // Append the recipeDiv to the recipeContainer
       recipeContainer.appendChild(recipeDiv);
     });
 
