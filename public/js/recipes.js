@@ -32,7 +32,7 @@ const createRecipeCard = (recipe) => {
   const categoryLink = document.createElement("a");
   category.textContent = "Category: ";
   categoryLink.textContent = recipe.category.category_name;
-  categoryLink.href = `/recipes?category=${encodeURIComponent(
+  categoryLink.href = `/recipes?categories=${encodeURIComponent(
     recipe.category.category_name
   )}`;
   category.appendChild(categoryLink);
@@ -56,11 +56,27 @@ const createRecipeCard = (recipe) => {
 // Function to populate the list of recipes
 const populateRecipesList = async () => {
   try {
-    const response = await fetch("/api/recipes");
+    const params = new URLSearchParams(window.location.search);
+    category = params.get("categories");
+    ingredient = params.get("ingredient");
+    let response;
+    if (category) {
+      response = await fetch("/api/categories/" + category);
+    } else if (ingredient) {
+      response = await fetch("/api/ingredients/" + ingredient);
+    } else {
+      response = await fetch("/api/recipes");
+    }
     if (!response.ok) {
       throw new Error("Failed to fetch recipes");
     }
-    const recipes = await response.json();
+    const json = await response.json();
+    let recipes;
+    if (category || ingredient) {
+      recipes = json.recipes;
+    } else {
+      recipes = json;
+    }
     const recipeList = document.querySelector(".recipe-list");
     recipeList.innerHTML = ""; // Clear existing content
     recipes.forEach((recipe) => {
