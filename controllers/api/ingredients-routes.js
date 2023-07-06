@@ -1,5 +1,10 @@
 const router = require("express").Router();
-const { Ingredient, Recipe, RecipeIngredient } = require("../../models");
+const {
+  Category,
+  Ingredient,
+  Recipe,
+  RecipeIngredient,
+} = require("../../models");
 
 // The `/api/ingredients` endpoint
 
@@ -29,6 +34,10 @@ router.get("/:name", (req, res) => {
         model: Recipe,
         through: RecipeIngredient,
         foreignKey: "ingredient_id",
+        include: [
+          { model: Category, as: "category" },
+          { model: Ingredient, as: "ingredients" },
+        ],
       },
     ],
   })

@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const cookTime = document.createElement("p");
           const ingredientsList = document.createElement("ul");
           const categoryLink = document.createElement("a");
-          const recipeImage = document.createElement("img"); // Image element for the picture
+          const recipeImage = document.createElement("img");
 
           // Set the content for each element
           recipeName.textContent = recipe.recipe_name;
@@ -104,29 +104,4 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", async () => {
   const apiUrl = "/api/recipes";
   const recipeListContainer = document.getElementById("recipeListContainer");
-
-  // Get the Handlebars template
-  const recipeListTemplateSource =
-    document.getElementById("recipeListTemplate").innerHTML;
-
-  // Compile the Handlebars template
-  const recipeListTemplate = Handlebars.compile(recipeListTemplateSource);
-
-  console.log("recipeListContainer:", recipeListContainer);
-
-  try {
-    // Fetch the JSON data from the API
-    const response = await fetch(apiUrl);
-    const recipeData = await response.json();
-
-    console.log(recipeData);
-
-    // Render the compiled template with the recipe data
-    const recipeListHTML = recipeListTemplate({ recipes: recipeData });
-
-    // Display the rendered HTML on the page
-    recipeListContainer.innerHTML = recipeListHTML;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
 });

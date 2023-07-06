@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Category, Recipe } = require("../../models");
+const { Category, Recipe, Ingredient } = require("../../models");
 
 // The `/api/categories` endpoint
 
@@ -26,6 +26,10 @@ router.get("/:name", (req, res) => {
       {
         model: Recipe,
         as: "recipes",
+        include: [
+          { model: Category, as: "category" },
+          { model: Ingredient, as: "ingredients" },
+        ],
       },
     ],
   })

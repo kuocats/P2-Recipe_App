@@ -22,10 +22,9 @@ router.get("/", withAuth, async (req, res) => {
     // Pass the user data to the profile page template for rendering
     res.render("profile", {
       ...user,
-      logged_in: true, // Indicate that the user is logged in to show profile-specific content
+      logged_in: true,
     });
   } catch (err) {
-    // Handle any errors that occur during the data retrieval or rendering process
     res.status(500).json(err);
   }
 });
