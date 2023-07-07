@@ -41,7 +41,7 @@ This website allows users to discover and post food recipes. Users will be able 
 
 ## Mock-Up
 
-Screenshots located in `./uploads/` folder.
+Screenshot located in `./uploads/` folder.
 ![recipe-master](./uploads/screenshot.png)
 
 ## Credits
