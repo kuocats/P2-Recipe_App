@@ -43,7 +43,7 @@ router.get("/", (req, res) => {
 
 // Get one Recipe
 router.get("/:name", (req, res) => {
-  const searchWord = req.params.name; // Use req.params.name instead of req.query.name
+  const searchWord = req.params.name;
   const searchWords = searchWord ? searchWord.split(" ") : [];
 
   const conditions = searchWords.map((word) => ({
@@ -73,8 +73,8 @@ router.get("/:name", (req, res) => {
 
 // Create new Recipe
 router.post("/", upload.single("picture"), (req, res) => {
-  console.log("Received request:", req.body); // Check if you are getting the request body
-  console.log("Received file:", req.file); // Check if you are getting the file
+  console.log("Received request:", req.body);
+  console.log("Received file:", req.file);
 
   /* create post json example, do not delete.
     {
@@ -144,7 +144,7 @@ router.put("/:name", upload.single("photo"), (req, res) => {
   Recipe.update(updatedRecipe, {
     where: {
       recipe_name: req.params.name,
-      user_id: req.session.user_id, // Make sure to include user_id in the WHERE condition
+      user_id: req.session.user_id,
     },
   })
     .then(() => {
@@ -173,7 +173,7 @@ router.delete("/:id", (req, res) => {
   Recipe.destroy({
     where: {
       id: req.params.id,
-      user_id: req.session.user_id, // Make sure to include user_id in the WHERE condition
+      user_id: req.session.user_id,
     },
   })
     .then(() => {

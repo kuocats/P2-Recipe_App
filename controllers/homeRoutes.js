@@ -116,7 +116,6 @@ router.get("/category/:name", async (req, res) => {
     // Fetch the recipes that belong to the specified category
     const recipeData = await Recipe.findAll({
       where: {
-        // Assuming you have a column named 'category_name' in your Recipe model
         category_name: categoryName,
       },
       include: [

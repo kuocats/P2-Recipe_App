@@ -41,15 +41,13 @@ This website allows users to discover and post food recipes. Users will be able 
 
 ## Mock-Up
 
-Screenshots located in `./assets/` folder.
-
-The following screenshot shows the application's GET routes to return all recipes:
+Screenshot located in `./uploads/` folder.
+![recipe-master](./uploads/screenshot.png)
 
 ## Credits
 
 Documetation for the following npm packages were used to create this application:
 https://www.npmjs.com/package/multer
-https://www.npmjs.com/package/slugify
 
 Here documentation for Sequelize fearch by word
 `[Op.like]: '%hat'`
